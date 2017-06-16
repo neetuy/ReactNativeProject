@@ -1,50 +1,24 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import {Container, Header, Content, Footer, Title} from 'native-base';
+import { Col, Row, Grid } from "react-native-easy-grid";
 
 class ListViewDemo extends Component {
-
-   state = {
-      names: [
-         {
-            id: 0,
-            name: 'Ben',
-         },
-         {
-            id: 1,
-            name: 'Susan',
-         },
-         {
-            id: 2,
-            name: 'Robert',
-         },
-         {
-            id: 3,
-            name: 'Mary',
-         }
-      ]
-   }
-
-   alertItemName = (item) => {
-      alert(item.name)
-   }
-
-   render() {
+   render(props) {
       return (
-         <View>
-            {
-               this.state.names.map((item, index) => (
-                  <TouchableOpacity
-                     key = {item.id}
-                     style = {styles.container}
-                     onPress = {() => this.alertItemName(item)}
-                  >
-                     <Text style={styles.text}>
-                        {item.name}
-                     </Text>
-                  </TouchableOpacity>
-               ))
-            }
-         </View>
+      <Container style={styles.container}>
+              <Content>
+                <Grid>
+                    <Col>
+                    <Row  style={styles.row1}>
+                      <TouchableOpacity onPress = {props.helloWorld}>
+                        <Text>click</Text>
+                      </TouchableOpacity>
+                    </Row>
+                    </Col>
+                </Grid>
+              </Content>
+          </Container>
       )
    }
 }
@@ -55,9 +29,12 @@ const styles = StyleSheet.create ({
       backgroundColor: '#d9f9b1',
       alignItems: 'center',
    },
-   text: {
-      color: '#4f603c'
-   }
+      row1:{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+
+    }
 })
 
 export default ListViewDemo
