@@ -1,24 +1,54 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import {Container, Header, Content, Footer, Title} from 'native-base';
-import { Col, Row, Grid } from "react-native-easy-grid";
 
 class ListViewDemo extends Component {
-   render(props) {
+
+   state = {
+      names: [
+         {
+            id: 0,
+            name: '5',
+         },
+         {
+            id: 1,
+            name: '6',
+         },
+         {
+            id: 2,
+            name: '7',
+         },
+         {
+            id: 3,
+            name: '8',
+         }
+      ]
+   }
+
+   alertItemName = (item) => {
+      alert(item.name)
+   }
+   render() {
       return (
-      <Container style={styles.container}>
-              <Content>
-                <Grid>
-                    <Col>
-                    <Row  style={styles.row1}>
-                      <TouchableOpacity onPress = {props.helloWorld}>
-                        <Text>click</Text>
-                      </TouchableOpacity>
-                    </Row>
-                    </Col>
-                </Grid>
-              </Content>
-          </Container>
+      <View>
+         <View>
+            {
+               this.state.names.map((item, index) => (
+                  <TouchableOpacity
+                     key = {item.id}
+                     style = {styles.container}
+                     onPress = {() => this.alertItemName(item)}
+                  >
+                     <Text style={styles.text}>
+                        {item.name}
+                     </Text>
+                  </TouchableOpacity>
+               ))
+            }
+         </View>
+         <View>
+      
+         </View>
+      </View>   
       )
    }
 }
@@ -29,12 +59,8 @@ const styles = StyleSheet.create ({
       backgroundColor: '#d9f9b1',
       alignItems: 'center',
    },
-      row1:{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-
-    }
+   text: {
+      color: '#4f603c'
+   }
 })
-
 export default ListViewDemo
