@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { View, Image, Text, StyleSheet, AsyncStorage } from 'react-native'
 import LoginForm from './LoginForm';
