@@ -1,87 +1,10 @@
-// import {Container, Header, Content, Footer, Title} from 'native-base';
-// import { Col, Row, Grid } from "react-native-easy-grid";
-// import React, {Component} from "react";
-// import {StyleSheet, TouchableOpacity, Text,View} from 'react-native';
-// import { Actions } from 'react-native-router-flux';
-// import ListViewDemo from '../listview/ListViewDemo';
-
-
-//   class HomePage extends Component{
-//   	constructor() {
-//       super()
-//     }
-//     renderView(props) {    	
-//   		return 
-//         <View>
-//          <Text>hello</Text>
-//         </View>
-// 		}
-
-// 		_handlePress(){
-// 			showSecond = this.state.showSecond;
-//     return this.setState(showSecond(true));
-//   	}
-//     goTolistView(){
-//       Actions.listView()  
-//     }
-//     render(){
-//       return (
-//           <Container style={styles.container}>
-//               <Content>
-//                 <Grid>
-//                   <Col style={styles.col1}>  
-//                     <Row  style={styles.row1}>
-//                       <TouchableOpacity onPress = {this.goTolistView}>
-//                         <Text>listView</Text>
-//                       </TouchableOpacity>
-//                     </Row>
-//                   </Col>
-//                   <Col style={styles.col2}>
-//                     <Row  style={styles.row1}>
-//                       <TouchableOpacity onPress = {this.renderView}>
-//                         <Text>listView1</Text>
-//                       </TouchableOpacity>
-//                     </Row>
-//                   </Col>
-//                 </Grid>
-//               </Content>
-//           </Container>
-
-//       );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//     container:{
-//         marginTop:10
-//     },
-//     colContent:{
-//         marginTop:300
-//     },
-//     col1:{
-//         backgroundColor: 'red',
-//         height: 200,
-//         margin: 10
-//     },
-//     col2:{
-//         height: 200,
-//         margin: 10
-//     },
-//     row1:{
-//       flex: 1,
-//       justifyContent: 'center',
-//       alignItems: 'center',
-
-//     }
-// })
-// export default HomePage
-
-import {Container, Header, Content, Footer, Title} from 'native-base';
+import {Container, Header, Content,List, ListItem, Right, Left, Body, Icon, Title, Switch} from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import React, {Component} from "react";
-import {StyleSheet, TouchableOpacity, Text,View} from 'react-native';
+import {TouchableOpacity, Text,View} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Router, Scene } from 'react-native-router-flux';
+import styles from '../../style/style';
 
  const Home = () => {
     const goToAbout = () => {
@@ -90,20 +13,19 @@ import { Router, Scene } from 'react-native-router-flux';
    	const goToTopics = () => {
       Actions.topics()
    	}
-
     return (
-	    <Container style={styles.container}>
+	    <Container style={styles.containerHome}>
 	      <Content>
 	        <Grid>
-	          <Col style={styles.col1}>  
-	            <Row  style={styles.row1}>
+	          <Col style={styles.col1Home}>  
+	            <Row  style={styles.row1Home}>
 	              <TouchableOpacity onPress = {goToAbout}>
 	                <Text>Go To About</Text>
 	              </TouchableOpacity>
 	            </Row>
 	          </Col>
-	          <Col style={styles.col1}>  
-	          	<Row  style={styles.row1}>
+	          <Col style={styles.col1Home}>  
+	          	<Row  style={styles.row1Home}>
 	            	<TouchableOpacity onPress = {goToTopics}>
 	              	<Text>Go To Topics</Text>
 	            	</TouchableOpacity>
@@ -119,15 +41,45 @@ import { Router, Scene } from 'react-native-router-flux';
       Actions.home()
    	}
     return (
-    <Container style={styles.container}>
+    <Container style={styles.containerHome}>
 	      <Content>
 	        <Grid>
 	          <Col style={styles.colAbout}>  
-	            <Row  style={styles.row1}>
-	            	<TouchableOpacity onPress = {goToHome}>
-	              	<Text>This is About Page</Text>
-	            	</TouchableOpacity>       
-	            </Row>
+              <ListItem icon >
+                    <Left>
+                        <Icon name="plane" />
+                    </Left>
+                    <Body>
+                      <Text>Airplane Mode</Text>
+                    </Body>
+                    <Right>
+                        <Switch value={false} />
+                    </Right>
+                </ListItem>
+                <ListItem icon>
+                    <Left>
+                        <Icon name="wifi" />
+                    </Left>
+                    <Body>
+                      <Text>Wi-Fi</Text>
+                    </Body>
+                    <Right>
+                        <Text>GeekyAnts</Text>
+                        <Icon name="arrow-forward" />
+                    </Right>
+                </ListItem>
+                <ListItem icon>
+                    <Left>
+                        <Icon name="bluetooth" />
+                    </Left>
+                    <Body>
+                      <Text>Bluetooth</Text>
+                    </Body>
+                    <Right>
+                        <Text>On</Text>
+                        <Icon name="arrow-forward" />
+                    </Right>
+              </ListItem>
 	          </Col>
 	        </Grid>
 	      </Content>
@@ -138,16 +90,24 @@ import { Router, Scene } from 'react-native-router-flux';
  	const goToHome = () => {
       Actions.home()
    	}
-    return (
-    <Container style={styles.container}>
+    var items = ['ListItem 4' , 'ListItem 5', 'ListItem 6']; 
+    return (  
+    <Container style={styles.containerHome}>
 	      <Content>
 	        <Grid>
 	          <Col style={styles.colTopics}>  
-	            <Row  style={styles.row1}>
-	            	<TouchableOpacity onPress = {goToHome}>
-	              	<Text>This is Topics Page</Text>
-	            	</TouchableOpacity>       
-	            </Row>
+	            <List dataArray={items}
+                renderRow={(item) =>
+                    <ListItem>
+                      <Left>
+                        <Text>{item}</Text>
+                      </Left>
+                      <Right>  
+                        <Icon name="arrow-forward" />
+                      </Right>
+                    </ListItem>
+                }>
+              </List>
 	          </Col>
 	        </Grid>
 	      </Content>
@@ -155,7 +115,7 @@ import { Router, Scene } from 'react-native-router-flux';
     
     );
 };
- const HomePage   = () => (
+ const HomePage = () => (
    <Router>
       <Scene key = "root">
       		<Scene key = "home" component = {Home} title = "Home" initial = {true} />
@@ -165,35 +125,6 @@ import { Router, Scene } from 'react-native-router-flux';
    </Router>
    )
 
-   const styles = StyleSheet.create({
-    container:{
-        marginTop:10
-    },
-    colContent:{
-        marginTop:300
-    },
-    col1:{
-        backgroundColor: 'red',
-        height: 200,
-        margin: 10
-    },
-    colAbout:{
-        backgroundColor: 'blue',
-        height: 200,
-        margin: 10
-    },
-    colTopics:{
-    		backgroundColor: 'green',
-        height: 200,
-        margin: 10
-    },
-    row1:{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-
-    }
-
-  })
+   
 
 export default HomePage

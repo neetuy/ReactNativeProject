@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { View, Image, Text, StyleSheet, AsyncStorage } from 'react-native'
 import LoginForm from './LoginForm';
-import { Actions } from 'react-native-router-flux'
-
-
+import { Actions } from 'react-native-router-flux';
+import styles from '../../style/style';
 export default class Login extends Component {
    constructor() {
       super()
@@ -91,31 +90,3 @@ export default class Login extends Component {
    }
 }
 
-const styles = StyleSheet.create ({
-   container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent:'center',
-      padding: 23
-
-   },
-   wrapper: {
-    flex: 1,
-    backgroundColor: '#3498db', 
-  },
-  logoContainer: {
-    flexGrow:1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  title: {
-    color: '#fff',
-    marginTop: 10,
-    width: 100,
-    textAlign:'center'
-  },
-})
