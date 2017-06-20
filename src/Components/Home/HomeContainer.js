@@ -1,43 +1,27 @@
 import React, { Component } from 'react'
 import {
-   AsyncStorage
+   View
 } from 'react-native'
-import AsyncStorageExample from './AsyncStorageExample'
+import HomeButton from './HomeButton'
 
 export default class HomeContainer extends Component {
    constructor() {
-      super();
-      this.state = {
-         'data': ''
-      }
-   }
- 
-   // setData = (value) => {
-   //    AsyncStorage.setItem('data', value);
-   //    this.setState({'data': value});
-   // }
-   // getData = (value) => {
-   //    AsyncStorage.getItem('data', value);
-   //    this.setState({'data': value});
-   //    alert('data');
-   // }
-   setData = (value) => {
-      AsyncStorage.setItem('someBoolean', JSON.stringify(value))
-   }
-
-   getData = (value) => {
-      AsyncStorage.getItem('someBoolean', function (err, value) {
-       var data = JSON.parse(value); // boolean false
-       alert(data);
-      });
+      super()
    }
    render() {
       return (
-         <AsyncStorageExample
-            data = {this.state.data}
-            setData = {this.setData}
-            getData = {this.getData}
-         />
-      );
+         <View>
+            <HomeButton goToAbout = {this.goToAbout}/>
+         </View>
+      )
    }
-}
+   openMenu = () =>{
+      alert("Menu button pressed!")
+   }
+   goToAbout = () => {
+      this.props.navigator.push({
+         name: 'About',
+         title: 'About',
+         openMenu: this.openMenu
+      });
+   }

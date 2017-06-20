@@ -1,11 +1,34 @@
 import {Container, Header, Content,List, ListItem, Right, Left, Body, Icon, Title, Switch} from 'native-base';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import React, {Component} from "react";
-import {TouchableOpacity, Text,View} from 'react-native';
+import {TouchableOpacity, Text,View, AsyncStorage} from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene, Schema } from 'react-native-router-flux';
 import styles from '../../style/style';
+import NavigationBar from 'react-native-navbar';
 
+deleteItem = (value) => {
+      AsyncStorage.removeItem('email').then((value) => {
+         var email = JSON.parse(value); 
+        alert(email);
+      });
+      AsyncStorage.removeItem('password').then((value) => {
+         var data = JSON.parse(value); 
+        alert(password);
+      });
+
+    }
+getData = (value) => {
+      AsyncStorage.getItem('email').then((value) => {
+        var email = JSON.parse(value); // boolean false
+        alert(email);
+      });
+      AsyncStorage.getItem('password').then((value) => {
+        var password = JSON.parse(value); // boolean false
+        alert(password);
+      });
+
+    }
  const Home = () => {
     const goToAbout = () => {
       Actions.about()
@@ -16,6 +39,22 @@ import styles from '../../style/style';
     return (
 	    <Container style={styles.containerHome}>
 	      <Content>
+          <Grid style={styles.homeGridMargin}>  
+            <Col style={styles.col1Text}>
+              <Row>
+                <TouchableOpacity onPress = {deleteItem}>
+                  <Text>delete</Text>
+                </TouchableOpacity>
+              </Row>
+            </Col>
+            <Col style={styles.col1Text}>
+              <Row>
+                <TouchableOpacity onPress = {getData}>
+                  <Text>getData</Text>
+                </TouchableOpacity>
+              </Row>
+            </Col>
+          </Grid>
 	        <Grid>
 	          <Col style={styles.col1Home}>  
 	            <Row  style={styles.row1Home}>
@@ -25,13 +64,14 @@ import styles from '../../style/style';
 	            </Row>
 	          </Col>
 	          <Col style={styles.col1Home}>  
-	          	<Row  style={styles.row1Home}>
+	          	<Row style={styles.row1Home}>
 	            	<TouchableOpacity onPress = {goToTopics}>
 	              	<Text>Go To Topics</Text>
 	            	</TouchableOpacity>
 	          	</Row>
 	        	</Col>
-	        </Grid>
+          </Grid>
+          
 	      </Content>
 	  </Container>
     );
@@ -115,10 +155,33 @@ import styles from '../../style/style';
     
     );
 };
+const NavigationBarExample = () => {
+   return (
+    <View style={styles.container}>
+      <NavigationBar
+        title={titleConfig}
+        rightButton={rightButtonConfig}
+        getData={getData}
+        deleteItem={deleteItem}
+      />
+    </View>
+  );
+}
+
+const rightButtonConfig = {
+  title: 'delete',
+};
+
+const titleConfig = {
+  title: 'get',
+};
+
+
  const HomePage = () => (
    <Router>
       <Scene key = "root">
-      		<Scene key = "home" component = {Home} title = "Home" initial = {true} />
+          
+      		<Scene key = "home" component = {Home} title = "Home"  initial = {true}/>
          	<Scene key = "about" component = {About} title = "About" />
          	<Scene key = "topics" component = {Topics} title = "Topics"  />
       </Scene>
@@ -128,3 +191,5 @@ import styles from '../../style/style';
    
 
 export default HomePage
+
+

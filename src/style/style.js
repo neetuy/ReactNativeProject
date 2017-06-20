@@ -1,6 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+  homeGridMargin:{
+    marginTop:100,
+    marginLeft:10
+  },
+  container: {
+    flex: 1,
+    marginTop: 50
+  },
 containerHome:{
   marginTop:10
 },
@@ -12,6 +20,10 @@ col1Home:{
   height: 200,
   margin: 10
 },
+col1Text:{
+  margin: 10
+},
+
 colAbout:{
   height: 200,
   marginTop: 50,
