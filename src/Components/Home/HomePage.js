@@ -8,32 +8,7 @@ import styles from '../../style/style';
 import NavigationBar from 'react-native-navbar';
 
 
-deleteItem = (value) => {
-      AsyncStorage.removeItem('email').then((value) => {
-         // this.setState({email: value});
-         var email = JSON.parse(value); // boolean false
-        alert(email);
-      });
-      AsyncStorage.removeItem('password').then((value) => {
-         // this.setState({password: value});
-         var password = JSON.parse(value); // boolean false
-        alert(password);
-      });
 
-    }
-getData = (value) => {
-      AsyncStorage.getItem('email').then((value) => {
-        // this.setState({email: value});
-        var email = JSON.parse(value); // boolean false
-        alert(email);
-      });
-      AsyncStorage.getItem('password').then((value) => {
-        // this.setState({password: value});
-        var password = JSON.parse(value); // boolean false
-        alert(password);
-      });
-
-    }
  const Home = () => {
     const goToAbout = () => {
       Actions.about()
@@ -44,22 +19,6 @@ getData = (value) => {
     return (
 	    <Container style={styles.containerHome}>
 	      <Content>
-          <Grid style={styles.homeGridMargin}>  
-            <Col style={styles.col1Text}>
-              <Row>
-                <TouchableOpacity onPress = {deleteItem}>
-                  <Text>delete</Text>
-                </TouchableOpacity>
-              </Row>
-            </Col>
-            <Col style={styles.col1Text}>
-              <Row>
-                <TouchableOpacity onPress = {getData}>
-                  <Text>getData</Text>
-                </TouchableOpacity>
-              </Row>
-            </Col>
-          </Grid>
 	        <Grid>
 	          <Col style={styles.col1Home}>  
 	            <Row  style={styles.row1Home}>
@@ -75,8 +34,7 @@ getData = (value) => {
 	            	</TouchableOpacity>
 	          	</Row>
 	        	</Col>
-          </Grid>
-          
+          </Grid>   
 	      </Content>
 	  </Container>
     );
@@ -160,28 +118,6 @@ getData = (value) => {
     
     );
 };
-const NavigationBarExample = () => {
-   return (
-    <View style={styles.container}>
-      <NavigationBar
-        title={titleConfig}
-        rightButton={rightButtonConfig}
-        getData={getData}
-        deleteItem={deleteItem}
-      />
-    </View>
-  );
-}
-
-const rightButtonConfig = {
-  title: 'delete',
-};
-
-const titleConfig = {
-  title: 'get',
-};
-
-
  const HomePage = () => (
    <Router>
       <Scene key = "root">

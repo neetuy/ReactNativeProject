@@ -14,10 +14,13 @@ export default class Login extends Component {
       // this.submit = this.submit.bind(this);
     }
     updateEmail = (value) => {
+      var email = this.state.email;
       AsyncStorage.setItem('email', JSON.stringify(value))
-      this.setState({email: value})
+      this.setState({email: value});
+      console.log(email);
     }
     updatePassword = (value) => {
+      var password = this.state.password;
       this.setState({password: value})
       AsyncStorage.setItem('password', JSON.stringify(value))
     }
