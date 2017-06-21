@@ -7,23 +7,28 @@ import { Router, Scene, Schema } from 'react-native-router-flux';
 import styles from '../../style/style';
 import NavigationBar from 'react-native-navbar';
 
+
 deleteItem = (value) => {
       AsyncStorage.removeItem('email').then((value) => {
-         var email = JSON.parse(value); 
+         // this.setState({email: value});
+         var email = JSON.parse(value); // boolean false
         alert(email);
       });
       AsyncStorage.removeItem('password').then((value) => {
-         var data = JSON.parse(value); 
+         // this.setState({password: value});
+         var password = JSON.parse(value); // boolean false
         alert(password);
       });
 
     }
 getData = (value) => {
       AsyncStorage.getItem('email').then((value) => {
+        // this.setState({email: value});
         var email = JSON.parse(value); // boolean false
         alert(email);
       });
       AsyncStorage.getItem('password').then((value) => {
+        // this.setState({password: value});
         var password = JSON.parse(value); // boolean false
         alert(password);
       });

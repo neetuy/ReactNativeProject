@@ -34,7 +34,7 @@ export default class Login extends Component {
       });
       AsyncStorage.removeItem('password').then((value) => {
          this.setState({password: value});
-         var data = JSON.parse(value); // boolean false
+         var password = JSON.parse(value); // boolean false
         alert(password);
       });
 
