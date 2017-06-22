@@ -1,16 +1,16 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  homeGridMargin:{
-    marginTop:100,
-    marginLeft:10
-  },
-  container: {
-    flex: 1,
-    marginTop: 50
-  },
+homeGridMargin:{
+  marginTop:100,
+  marginLeft:10
+},
+container: {
+  flex: 1,
+  marginTop: 100
+},
 containerHome:{
-  marginTop:10
+  marginTop:50
 },
 colContentHome:{
   marginTop:300
@@ -76,6 +76,19 @@ buttonContainerLoginForm:{
 buttonTextLoginForm:{
   textAlign: 'center',
   color: '#fff'
+},
+routeCustom:{
+  backgroundColor: '#fff',
+},
+routeMargin:{
+  marginBottom: 20
+},
+titleStyle: {
+    color: 'blue',
+    fontSize: 16,
+    textAlign: 'left',
+    alignSelf: 'flex-start',
+    paddingLeft: 40,
 }
 
 })

@@ -6,7 +6,7 @@ import { Actions } from 'react-native-router-flux';
 import { Router, Scene, Schema } from 'react-native-router-flux';
 import styles from '../../style/style';
 import NavigationBar from 'react-native-navbar';
-
+import DrawerExample from './../routes/DrawerExample';
 
 
  const Home = () => {
@@ -16,6 +16,9 @@ import NavigationBar from 'react-native-navbar';
    	const goToTopics = () => {
       Actions.topics()
    	}
+    const goToDrawer = () => {
+      Actions.drawer()
+    }
     return (
 	    <Container style={styles.containerHome}>
 	      <Content>
@@ -34,6 +37,13 @@ import NavigationBar from 'react-native-navbar';
 	            	</TouchableOpacity>
 	          	</Row>
 	        	</Col>
+            <Col style={styles.col1Home}>  
+              <Row style={styles.row1Home}>
+                <TouchableOpacity onPress = {goToDrawer}>
+                  <Text>Go To drawer</Text>
+                </TouchableOpacity>
+              </Row>
+            </Col>
           </Grid>   
 	      </Content>
 	  </Container>
@@ -120,17 +130,17 @@ import NavigationBar from 'react-native-navbar';
 };
  const HomePage = () => (
    <Router>
-      <Scene key = "root">
-          
+      <Scene key = "root"> 
       		<Scene key = "home" component = {Home} title = "Home"  initial = {true}/>
          	<Scene key = "about" component = {About} title = "About" />
          	<Scene key = "topics" component = {Topics} title = "Topics"  />
+          <Scene key = "drawer" component = {DrawerExample} title = "Drawer"  />
       </Scene>
    </Router>
    )
 
    
 
-export default HomePage
+export default Home
 
 

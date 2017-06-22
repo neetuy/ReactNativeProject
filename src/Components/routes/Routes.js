@@ -1,32 +1,32 @@
 import React from 'react'
 import { Router, Scene,  Schema, Animations } from 'react-native-router-flux'
 import {TouchableOpacity, Text,View, Icon, AsyncStorage} from 'react-native';
-import { Actions } from 'react-native-router-flux';
 import Home from '../Home/HomePage'
 import Login from '../Login/Login'
-import ListViewDemo from '../listview/ListViewDemo'
-import ListViewDemo1 from '../listview/ListViewDemo1'
+import DrawerExample from './DrawerExample'
+import styles from '../../style/style';
+
 
 deleteItem = (value) => {
-    // const goToLogin = () => {
-    //    Actions.login();
+    // const goToLogin = () =>{
+    //   Actions.login();
     // }
       AsyncStorage.removeItem('email').then((value) => {
-          var email = JSON.parse(value); 
-          alert(email);
-          console.log(email);
+         var email = JSON.parse(value); 
+        alert(email);
       });
+      // goToLogin();
     }
      
 const Routes = () => (
-   <Router>
+   <Router style={styles.routeMargin}>
       <Scene key = "root">
-   		<Scene key = "login" component = {Login} title = "Login"  initial = {true} />
-      	<Scene key = "home" component = {Home} title = "Home" rightTitle={'delete session'} onRight={deleteItem}/>
-      	<Scene key = "listView" component = {ListViewDemo} title = "ListView"  />
-      	<Scene key = "listView1" component = {ListViewDemo1} title = "ListView1"  />
+   		<Scene key = "login" component = {Login} navigationBarStyle={styles.routeCustom} title = "Login"  initial = {true} />
+      <Scene key = "home" component = {Home} title = "AutoGrapha Go" rightTitle={'English ULB'} onRight={deleteItem} titleStyle={styles.titleStyle} initial = {true} />
+      <Scene key = "drawer" component = {DrawerExample} title= "Drawer" />
       </Scene>
    </Router>
 )
 
 export default Routes
+
