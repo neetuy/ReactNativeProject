@@ -3,8 +3,7 @@ import {StyleSheet, Text, View, ViewPropTypes} from "react-native";
 import {Container,Content, List, ListItem} from 'native-base';
 
 
-const TabView = (props, context) => {
-  const drawer = context.drawer;
+const TabView = () => {
   return (
     <Container>
       <Content>

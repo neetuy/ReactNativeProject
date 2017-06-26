@@ -3,6 +3,8 @@ import {
    View
 } from 'react-native'
 import HomeButton from './HomeButton'
+import DrawerExample from './../routes/DrawerExample';
+
 
 export default class HomeContainer extends Component {
    constructor() {

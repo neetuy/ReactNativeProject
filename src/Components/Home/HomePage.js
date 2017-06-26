@@ -8,56 +8,59 @@ import styles from '../../style/style';
 import NavigationBar from 'react-native-navbar';
 import DrawerExample from './../routes/DrawerExample';
 
-
- const Home = () => {
-    const goToAbout = () => {
+ class Home  extends Component {
+    goToAbout(){
       Actions.about()
    	}
-   	const goToTopics = () => {
+   	goToTopics(){
       Actions.topics()
    	}
-    const goToDrawer = () => {
+    goToDrawer(){
       Actions.drawer()
     }
-    return (
-	    <Container style={styles.containerHome}>
-	      <Content>
-	        <Grid>
-	          <Col style={styles.col1Home}>  
-	            <Row  style={styles.row1Home}>
-	              <TouchableOpacity onPress = {goToAbout}>
-	                <Text>Go To About</Text>
-	              </TouchableOpacity>
-	            </Row>
-	          </Col>
-	          <Col style={styles.col1Home}>  
-	          	<Row style={styles.row1Home}>
-	            	<TouchableOpacity onPress = {goToTopics}>
-	              	<Text>Go To Topics</Text>
-	            	</TouchableOpacity>
-	          	</Row>
-	        	</Col>
+    render(){
+      return (
+      <Container style={styles.containerHome}>
+        <Content>
+          <Grid>
+            <Col style={styles.col1Home}>  
+              <Row  style={styles.row1Home}>
+                <TouchableOpacity onPress = {this.goToAbout}>
+                  <Text>Go To About</Text>
+                </TouchableOpacity>
+              </Row>
+            </Col>
             <Col style={styles.col1Home}>  
               <Row style={styles.row1Home}>
-                <TouchableOpacity onPress = {goToDrawer}>
+                <TouchableOpacity onPress = {this.goToTopics}>
+                  <Text>Go To Topics</Text>
+                </TouchableOpacity>
+              </Row>
+            </Col>
+            <Col style={styles.col1Home}>  
+              <Row style={styles.row1Home}>
+                <TouchableOpacity onPress = {this.goToDrawer}>
                   <Text>Go To drawer</Text>
                 </TouchableOpacity>
               </Row>
             </Col>
           </Grid>   
-	      </Content>
-	  </Container>
+        </Content>
+    </Container>
     );
+    }
+    
 };
- const About = () => {
- 	const goToHome = () => {
+ class About extends Component {
+ 	 goToHome = () => {
       Actions.home()
    	}
-    return (
+    render(){
+      return (
     <Container style={styles.containerHome}>
-	      <Content>
-	        <Grid>
-	          <Col style={styles.colAbout}>  
+        <Content>
+          <Grid>
+            <Col style={styles.colAbout}>  
               <ListItem icon >
                     <Left>
                         <Icon name="plane" />
@@ -93,23 +96,27 @@ import DrawerExample from './../routes/DrawerExample';
                         <Icon name="arrow-forward" />
                     </Right>
               </ListItem>
-	          </Col>
-	        </Grid>
-	      </Content>
-	  </Container>
+            </Col>
+          </Grid>
+        </Content>
+    </Container>
     );
+    }
+    
 };
- const Topics = () => {
- 	const goToHome = () => {
+ class Topics extends Component {
+
+  goToHome(){
       Actions.home()
    	}
-    var items = ['ListItem 4' , 'ListItem 5', 'ListItem 6']; 
+  render(){
+      var items = ['ListItem 4' , 'ListItem 5', 'ListItem 6']; 
     return (  
     <Container style={styles.containerHome}>
-	      <Content>
-	        <Grid>
-	          <Col style={styles.colTopics}>  
-	            <List dataArray={items}
+        <Content>
+          <Grid>
+            <Col style={styles.colTopics}>  
+              <List dataArray={items}
                 renderRow={(item) =>
                     <ListItem>
                       <Left>
@@ -121,12 +128,13 @@ import DrawerExample from './../routes/DrawerExample';
                     </ListItem>
                 }>
               </List>
-	          </Col>
-	        </Grid>
-	      </Content>
-	  </Container>
+            </Col>
+          </Grid>
+        </Content>
+    </Container>
     
     );
+    }  
 };
  const HomePage = () => (
    <Router>
@@ -139,8 +147,5 @@ import DrawerExample from './../routes/DrawerExample';
    </Router>
    )
 
-   
 
-export default Home
-
-
+export default HomePage

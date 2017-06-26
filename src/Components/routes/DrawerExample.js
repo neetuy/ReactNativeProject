@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import { Drawer, Container, Content, Tab, Tabs, Header, Picker } from 'native-base';
 import {  View, Text, TouchableOpacity } from 'react-native';

@@ -2,18 +2,18 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
 homeGridMargin:{
-  marginTop:100,
+  // marginTop:100,
   marginLeft:10
 },
 container: {
   flex: 1,
-  marginTop: 100
+  // marginTop: 100
 },
 containerHome:{
-  marginTop:50
+  // marginTop:50
 },
 colContentHome:{
-  marginTop:300
+  // marginTop:300
 },
 col1Home:{
   backgroundColor: 'red',
@@ -26,12 +26,12 @@ col1Text:{
 
 colAbout:{
   height: 200,
-  marginTop: 50,
+  // marginTop: 50,
   flex: 1,
 },
 colTopics:{
 	height: 200,
-  marginTop: 50,
+  // marginTop: 50,
   flex: 1,
 },
 row1Home:{
@@ -80,16 +80,32 @@ buttonTextLoginForm:{
 routeCustom:{
   backgroundColor: '#fff',
 },
-routeMargin:{
-  marginBottom: 20
-},
+
 titleStyle: {
     color: 'blue',
     fontSize: 16,
     textAlign: 'left',
     alignSelf: 'flex-start',
     paddingLeft: 40,
-}
+},
+header: {
+  backgroundColor: '#5cafec',
+  },
+  menuCustom:{
+
+  flex: 1, 
+  flexDirection: 'row', 
+  justifyContent: 'flex-end',
+ 
+
+  },
+  menuOptionCustom:{
+    flex:1,
+    justifyContent:'center',
+    alignItems:'center',
+    position: 'absolute', 
+    zIndex: -1 
+  }
 
 })
 export default styles
