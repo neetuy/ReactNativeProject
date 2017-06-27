@@ -6,9 +6,11 @@ import styles from '../../style/style';
 
 const MenuExample = () => {
     return(
-        <MenuContext>
+      <View>
+        <MenuContext style={styles.MenuContextCustom}>
             <TopNavigation/>
         </MenuContext>
+      </View>
         )
     
 }
@@ -17,7 +19,7 @@ const TopNavigation = () => (
   <View style={styles.menuCustom}>
     <Menu onSelect={(value) => alert(`User selected the number ${value}`)}>
       <MenuTrigger>
-        <Text style={{ fontSize: 20 }}><Icon name="menu"/></Text>
+        <Icon name="menu"/>
       </MenuTrigger>
       <MenuOptions style={styles.menuOptionCustom}>
         <MenuOption value={1}>

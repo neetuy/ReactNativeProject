@@ -7,6 +7,8 @@ import { Router, Scene, Schema } from 'react-native-router-flux';
 import styles from '../../style/style';
 import NavigationBar from 'react-native-navbar';
 import DrawerExample from './../routes/DrawerExample';
+import Menu, { MenuContext, MenuOptions, MenuOption, MenuTrigger } from 'react-native-menu';
+
 
  class Home  extends Component {
     goToAbout(){
@@ -148,4 +150,4 @@ import DrawerExample from './../routes/DrawerExample';
    )
 
 
-export default HomePage
+export default Home

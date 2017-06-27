@@ -8,6 +8,13 @@ import Login from '../Login/Login'
 import DrawerExample from './DrawerExample'
 import styles from '../../style/style';
 
+renderRightButton = () => {
+    return(
+        <TouchableOpacity onPress={() =>{alert('hi')} } >
+            <Icon name="menu" size={26} color='grey' />
+        </TouchableOpacity>
+    );
+};
 export default class RoutesPage extends Component {
       render() {
           return (
@@ -40,9 +47,9 @@ export default class RoutesPage extends Component {
   }
 
 const scenes = Actions.create(
-  <Scene key="root">
-    <Scene key = "login" component = {Login} navigationBarStyle={styles.routeCustom} title = "Login"/>
-    <Scene key = "home"  component = {Home} title = "AutoGrapha Go" renderRightButton={MenuExample} wrapRouter={false} titleStyle={styles.titleStyle} initial = {true} />
+  <Scene key="root" navigationBarStyle={styles.routeCustom}>
+    <Scene key = "login" component = {Login}  title = "Login"/>
+    <Scene key = "home"  component = {Home} title = "Home"   renderRightButton={()=><MenuExample/>} initial = {true} />
     <Scene key = "drawer" component = {DrawerExample} title= "Drawer" />
   </Scene>
 );

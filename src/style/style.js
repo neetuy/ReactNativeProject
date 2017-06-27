@@ -79,9 +79,11 @@ buttonTextLoginForm:{
 },
 routeCustom:{
   backgroundColor: '#fff',
+  flex:1
 },
 
 titleStyle: {
+    backgroundColor: '#fff',
     color: 'blue',
     fontSize: 16,
     textAlign: 'left',
@@ -92,19 +94,22 @@ header: {
   backgroundColor: '#5cafec',
   },
   menuCustom:{
-
   flex: 1, 
   flexDirection: 'row', 
   justifyContent: 'flex-end',
  
 
   },
+ 
   menuOptionCustom:{
     flex:1,
     justifyContent:'center',
     alignItems:'center',
     position: 'absolute', 
     zIndex: -1 
+  },
+  MenuContextCustom:{
+    flex:1,
   }
 
 })
