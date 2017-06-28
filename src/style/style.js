@@ -1,45 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-homeGridMargin:{
-  // marginTop:100,
-  marginLeft:10
-},
-container: {
-  flex: 1,
-  // marginTop: 100
-},
-containerHome:{
-  // marginTop:50
-},
-colContentHome:{
-  // marginTop:300
-},
-col1Home:{
-  backgroundColor: 'red',
-  height: 200,
-  margin: 10
-},
-col1Text:{
-  margin: 10
-},
-
-colAbout:{
-  height: 200,
-  // marginTop: 50,
-  flex: 1,
-},
-colTopics:{
-	height: 200,
-  // marginTop: 50,
-  flex: 1,
-},
-row1Home:{
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
-
-},
+  //loginPagecss
  wrapper: {
   flex: 1,
   backgroundColor: '#3498db', 
@@ -78,29 +40,27 @@ buttonTextLoginForm:{
   color: '#fff'
 },
 routeCustom:{
+  backgroundColor: '#2060a5',
+
+},
+//HomePagecss
+
+col1Home:{
   backgroundColor: '#fff',
-  flex:1
+  width:50,
+  margin: 10
+},
+row1Home:{
+  flex: 3  
+},
+col1Text:{
+  margin: 10
 },
 
-titleStyle: {
-    backgroundColor: '#fff',
-    color: 'blue',
-    fontSize: 16,
-    textAlign: 'left',
-    alignSelf: 'flex-start',
-    paddingLeft: 40,
+headerCustom:{
+  backgroundColor:'#2127a5'
 },
-header: {
-  backgroundColor: '#5cafec',
-  },
-  menuCustom:{
-  flex: 1, 
-  flexDirection: 'row', 
-  justifyContent: 'flex-end',
- 
 
-  },
- 
   menuOptionCustom:{
     flex:1,
     justifyContent:'center',
@@ -110,7 +70,7 @@ header: {
   },
   MenuContextCustom:{
     flex:1,
-  }
-
+  },
+  
 })
 export default styles
