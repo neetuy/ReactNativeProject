@@ -1,53 +1,70 @@
-import React, { Component } from 'react';
-import { Container, Content, Tab, Tabs, Header, Picker,Body, Title, Left,Button, Icon} from 'native-base';
-import {  View, Text, TouchableOpacity, StyleSheet,ListView } from 'react-native';
-import {Grid,Row,Col} from 'react-native-easy-grid'
+import React, { Component } from 'react'
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import {Icon, Right} from 'native-base'
+import {Actions} from 'react-native-router-flux'
 
-export default class StackOverflow extends Component {
-  constructor(props) {
-    super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      dataSource: ds.cloneWithRows([
-        'item'
-      ])
-    };
-  }
+class ListViewDemo1 extends Component {
 
-  render() {
-    return (
-      <View style={{flex:1,}}>
-       <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Grid>
-        <Row style={styles.container}>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-        </Row>
-        <Row style={styles.container}>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-        </Row>
-        <Row style={styles.container}>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-        </Row>
-      </Grid>}
-        />
-      </View>
-    );
-  }
+   state = {
+      names: [
+         {
+            id: 0,
+            name: 'a',
+         },
+         {
+            id: 1,
+            name: 'b',
+         },
+         {
+            id: 2,
+            name: 'c',
+         },
+         {
+            id: 3,
+            name: 'd',
+         }
+      ]
+   }
+
+   goToGridExample1 = () => {
+      Actions.gridOne()
+   }
+   render() {
+      return (
+      <View>
+         <View>
+            {
+               this.state.names.map((item, index) => (
+                  <TouchableOpacity
+                     key = {item.id}
+                     style = {styles.container}
+                     onPress = {this.goToGridExample1}
+                  >
+                     <Text style={styles.text}>
+                        {item.name}
+                     </Text>
+                     <Right>
+                        <Icon name="ios-arrow-forward"/>
+                     </Right>
+                  </TouchableOpacity>
+               ))
+            }
+         </View>
+         <View>
+      
+         </View>
+      </View>   
+      )
+   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems:'center',
-    justifyContent:'center'
-  },
-});
+const styles = StyleSheet.create ({
+   container: {
+      padding:10,
+      flexDirection:'row',
+      
+   },
+   text: {
+      color: '#4f603c'
+   }
+})
+export default ListViewDemo1

@@ -7,7 +7,8 @@ import { Actions } from 'react-native-router-flux';
 
 
 export default class HeaderTabs extends Component {
-  goToHome = () => {
+  
+   goToHome = () => {
       Actions.home()      
    }
 
@@ -27,14 +28,19 @@ return (
     </Body>
   </Header>
   <Tabs>
-      <Tab heading="chapter">
-        <GridExample/>
+      <Tab heading="chapter" ref='a'>
+        <GridExample 
+
+        />
       </Tab>
-      <Tab heading="verse">
-        <GridExample1/>
+      <Tab heading="verse" ref ='b'>
+        <GridExample1 
+
+         />
       </Tab>
   </Tabs>       
   </Container>
   )
   }
 }
+
