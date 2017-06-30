@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import {Icon, Right} from 'native-base'
+import {Actions} from 'react-native-router-flux'
 
-class ListViewDemo extends Component {
+class ListViewDemo1 extends Component {
 
    state = {
       names: [
@@ -24,8 +26,8 @@ class ListViewDemo extends Component {
       ]
    }
 
-   alertItemName = (item) => {
-      alert(item.name)
+   goToHeaderTabs = () => {
+      Actions.headerTabs()
    }
    render() {
       return (
@@ -36,11 +38,14 @@ class ListViewDemo extends Component {
                   <TouchableOpacity
                      key = {item.id}
                      style = {styles.container}
-                     onPress = {() => this.alertItemName(item)}
+                     onPress = {this.goToHeaderTabs}
                   >
                      <Text style={styles.text}>
                         {item.name}
                      </Text>
+                     <Right>
+                        <Icon name="ios-arrow-forward"/>
+                     </Right>
                   </TouchableOpacity>
                ))
             }
@@ -54,12 +59,12 @@ class ListViewDemo extends Component {
 }
 const styles = StyleSheet.create ({
    container: {
-      padding: 10,
-      marginTop: 8,
-      backgroundColor: '#d9f9b1',
+      padding:10,
+      flexDirection:'row',
+      
    },
    text: {
       color: '#4f603c'
    }
 })
-export default ListViewDemo
+export default ListViewDemo1
