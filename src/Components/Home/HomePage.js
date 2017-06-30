@@ -32,10 +32,10 @@ import ListViewDemo1 from './../listview/ListViewDemo1';
             </Col>
             <Col md={6}>
               <Tabs>
-              <Tab heading="Tab1">
+              <Tab heading="New Testament">
                 <ListViewDemo />
               </Tab>
-              <Tab heading="Tab2">
+              <Tab heading="Old Testament">
                 <ListViewDemo1 />
               </Tab>
               </Tabs>
