@@ -1,64 +1,75 @@
-import { Drawer, Container, Content, Tab, Tabs, Header,Body, Title, Right,Button, Icon,List, ListItem,Left} from 'native-base';
+
+import React, { Component } from 'react';
+import { View, StyleSheet,TouchableOpacity,Text } from 'react-native';
+import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
 import { Col, Row, Grid } from "react-native-easy-grid";
-import React, {Component} from "react";
-import {TouchableOpacity, Text,View, AsyncStorage} from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import { Router, Scene, Schema } from 'react-native-router-flux';
-import styles from '../../style/style';
+import { Container, Content,Header,Left,Right,Title,Icon } from 'native-base';
 import ListViewDemo from './../listview/ListViewDemo';
 import ListViewDemo1 from './../listview/ListViewDemo1';
 import ListExample from './../listview/ListExample';
 
+export default class Home extends Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: '1', title: 'Old Testament' },
+      { key: '2', title: 'New Testament' },
+    ],
+  };
 
- class Home  extends Component {
-    goToHeaderTabs(){
-      Actions.headerTabs()
-    }
-    goToLanguage(){
-      Actions.language()
-    }
-    
-    render(){
-      return (
+  _handleChangeTab = index => this.setState({ index });
+
+  _renderHeader = props => <TabBar {...props} />;
+
+  _renderScene = SceneMap({
+    '1': ListViewDemo,
+    '2': ListViewDemo1,
+  });
+
+  render() {
+    return (
       <Container>
-      <Header>
-      <Left>
-        <Title>
-          Autographa Go
-        </Title>
-      </Left>
-      <TouchableOpacity onPress={this.goToLanguage}>
-      <Right style={{top:-15}}>
-        <Text style={{color:"#fff", fontSize:18,textAlign:'center'}}>
-          English ULB
-        </Text>
-        <Icon name="ios-arrow-down" style={{color:'#fff'}}/>
-      </Right>
-      </TouchableOpacity>
-      </Header>
+        <Header>
+          <Left>
+            <Title>
+              Autographa Go
+            </Title>
+          </Left>
+          <TouchableOpacity onPress={this.goToLanguage}>
+          <Right style={{top:-15}}>
+            <Text style={{color:"#fff", fontSize:18,textAlign:'center'}}>
+              English ULB
+            </Text>
+            <Icon name="ios-arrow-down" style={{color:'#fff'}}/>
+          </Right>
+          </TouchableOpacity>
+        </Header>
         <Content>
-          <Grid>
+        <Grid>
           <Row>
-            <Col style={{ width: 60 }}>     
-                <ListExample/>
+            <Col style={{ width: 70 }}>     
+              <ListExample/>
             </Col>
             <Col md={6}>
-              <Tabs>
-              <Tab heading="New Testament">
-                <ListViewDemo />
-              </Tab>
-              <Tab heading="Old Testament">
-                <ListViewDemo1 />
-              </Tab>
-              </Tabs>
+            <TabViewAnimated
+              style={styles.container}
+              navigationState={this.state}
+              renderScene={this._renderScene}
+              renderHeader={this._renderHeader}
+              onRequestChangeTab={this._handleChangeTab}
+            />
             </Col>
           </Row>
-          </Grid>   
+        </Grid>
         </Content>
-    </Container>
+      </Container>
+      
     );
-    }
-    
-};
- 
-export default Home
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import {Icon, Right} from 'native-base'
 import {Actions} from 'react-native-router-flux'
 
-class ListViewDemo1 extends Component {
+class GridExample1 extends Component {
 
    state = {
       names: [
@@ -67,4 +67,4 @@ const styles = StyleSheet.create ({
       color: '#4f603c'
    }
 })
-export default ListViewDemo1
+export default GridExample1

@@ -22,9 +22,12 @@
 		"react-native-modal-dropdown": "^0.4.4",
 		"react-native-navbar": "^1.7.1",
 		"react-native-router-flux": "^3.40.1",
+		"react-native-segmented-control-tab": "^3.0.2",
 		"react-native-selectme": "^1.2.3",
 		"react-native-side-menu": "^0.20.1",
 		"react-native-simple-drawer": "^0.4.5",
+		"react-native-tab-view": "0.0.66",
+		"react-native-tabs": "^1.0.9",
 		"react-native-vector-icons": "^4.2.0"
 	},
 	"devDependencies": {

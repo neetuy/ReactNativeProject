@@ -3,10 +3,13 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight
 } from 'react-native';
 import RoutesPage from './src/Components/routes/Router';
 import HomePage from './src/Components/Home/HomePage';
+// import {Tab, Tabs} from 'native-base';
+
 // import MenuExample from './src/Components/Home/MenuExample';
 // import ListViewDemo from './src/Components/listview/ListViewDemo';
 // import DrawerExample from './src/Components/routes/DrawerExample';
@@ -20,5 +23,4 @@ export default class ReactNativeProject extends Component {
 }
 
 AppRegistry.registerComponent('ReactNativeProject', () => ReactNativeProject);
-
 

@@ -1,9 +1,12 @@
-import React, { Component } from 'react'
+import React, {PropTypes ,Component } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import {Icon, Right} from 'native-base'
 import {Actions} from 'react-native-router-flux'
 
-class ListViewDemo1 extends Component {
+class GridExample extends Component {
+  constructor(props) {
+      super(props);
+    }
 
    state = {
       names: [
@@ -38,7 +41,7 @@ class ListViewDemo1 extends Component {
                   <TouchableOpacity
                      key = {item.id}
                      style = {styles.container}
-                     onPress = {this.goToGridExample1}
+                     onPress = {()=>null}
                   >
                      <Text style={styles.text}>
                         {item.name}
@@ -67,4 +70,5 @@ const styles = StyleSheet.create ({
       color: '#4f603c'
    }
 })
-export default ListViewDemo1
+
+export default GridExample
