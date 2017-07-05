@@ -19,6 +19,9 @@ export default class AppBody extends Component {
     componentDidMount() {
         this.getData();
     }
+    goToHeaderTab = () => {
+      Actions.headerTabs()
+    }
     render() {
       let data = this.state.data;
           return (
@@ -26,6 +29,7 @@ export default class AppBody extends Component {
                        <View>{data.map(item =>
                         <TouchableOpacity
                         style = {styles.container}
+                         onPress = {this.goToHeaderTab}
                         >
                           <Text key={item.id}>{item.id}</Text>
                           <Right>

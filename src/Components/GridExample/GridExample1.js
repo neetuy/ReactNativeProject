@@ -1,70 +1,52 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import {Icon, Right} from 'native-base'
-import {Actions} from 'react-native-router-flux'
+import React, {Component} from 'react';
+import {Text,View,TouchableOpacity,StyleSheet} from 'react-native';
+import {Right, Icon} from 'native-base';
+import  fileName from './../JsonExample/fileName.json'
 
-class GridExample1 extends Component {
+export default class AppBody extends Component {
+   constructor(){
+        super()
+        this.state ={
+            data:[]     
+          }
+          this.getData =this.getData.bind(this);
+    }
 
-   state = {
-      names: [
-         {
-            id: 0,
-            name: 'e',
-         },
-         {
-            id: 1,
-            name: 'f',
-         },
-         {
-            id: 2,
-            name: 'g',
-         },
-         {
-            id: 3,
-            name: 'h',
-         }
-      ]
-   }
+    getData(){
+      const data = fileName;
+      this.setState({data})  
+    }
+    componentDidMount() {
+        this.getData();
+    }
+    render() {
+      let data = this.state.data;
+          return (
+                  <View>
+                       <View>{data.map(item =>
+                        <TouchableOpacity
+                        style = {styles.container}
+                        >
+                          <Text key={item.id}>{item.id}</Text>
+                          <Right>
+                            <Icon name="ios-arrow-forward"/>
+                          </Right>
+                          </TouchableOpacity>
+                          )}
+                       
+                       </View>
+                </View>
+                )
 
-   goToHeaderTabs = () => {
-      Actions.headerTabs()
-   }
-   render() {
-      return (
-      <View>
-         <View>
-            {
-               this.state.names.map((item, index) => (
-                  <TouchableOpacity
-                     key = {item.id}
-                     style = {styles.container}
-                     onPress = {this.goToHeaderTabs}
-                  >
-                     <Text style={styles.text}>
-                        {item.name}
-                     </Text>
-                     <Right>
-                        <Icon name="ios-arrow-forward"/>
-                     </Right>
-                  </TouchableOpacity>
-               ))
-            }
-         </View>
-         <View>
-      
-         </View>
-      </View>   
-      )
-   }
+       
 }
+}
+
 const styles = StyleSheet.create ({
    container: {
       padding:10,
       flexDirection:'row',
       
    },
-   text: {
-      color: '#4f603c'
-   }
+   
 })
-export default GridExample1
