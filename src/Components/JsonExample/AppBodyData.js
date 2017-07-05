@@ -10,7 +10,7 @@ export default class AppBodyData extends Component {
                     <CardItem>
                         <Body>
                             <Text>
-                                {description.id}
+                                {}
                             </Text>
                         </Body>
                     </CardItem>
