@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { View, StyleSheet,TouchableOpacity,Text } from 'react-native';
 import { TabViewAnimated, TabBar, SceneMap } from 'react-native-tab-view';
@@ -7,6 +6,11 @@ import { Container, Content,Header,Left,Right,Title,Icon } from 'native-base';
 import ListViewDemo from './../listview/ListViewDemo';
 import ListViewDemo1 from './../listview/ListViewDemo1';
 import ListExample from './../listview/ListExample';
+import {navigator} from 'react-native-deprecated-custom-components'
+
+const ListView = () => <ListViewDemo  />
+const ListView1 = () => <ListViewDemo1 />
+
 
 export default class Home extends Component {
   state = {
@@ -21,9 +25,17 @@ export default class Home extends Component {
 
   _renderHeader = props => <TabBar {...props} />;
 
+  // onChange = () => {
+  //   this.props.navigator.push({
+  //     component: ListViewDemo1,
+  //   });
+  // }
+
+    
   _renderScene = SceneMap({
-    '1': ListViewDemo,
-    '2': ListViewDemo1,
+
+    '1': ListView,
+    '2': ListView1,
   });
 
   render() {
@@ -73,3 +85,5 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+
