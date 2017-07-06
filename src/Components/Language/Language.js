@@ -1,11 +1,29 @@
 import React, { Component } from 'react';
 import { Container, Content, Tab, Tabs, Header, Picker,Body, Title, Left,Button, Icon,ListView} from 'native-base';
 import {  View, Text, TouchableOpacity } from 'react-native';
-
 import { Actions } from 'react-native-router-flux';
+import {Navigator, TabNavigator} from 'react-navigation'
+import LanguageTab from './LanguageTab'
+import VersionTab from './VersionTab' 
 
+const LanguageTabNavigation = TabNavigator({
 
-export default class HeaderTabs extends Component {
+  LanguageTab: {
+    screen: LanguageTab,
+  },
+  VersionTab: {
+    screen: VersionTab,
+  },
+  },
+  {
+  tabBarOptions : {
+    style: {
+      backgroundColor: '#3F51B5',
+    }
+  }
+}
+  )
+export default class Language extends Component {
   goToHome = () => {
       Actions.home()      
    }
@@ -25,10 +43,7 @@ return (
       </Title>
     </Body>
   </Header>
-  <Tabs>
-  <Tab heading="Language"></Tab>
-  <Tab heading="Version"></Tab>
-  </Tabs>
+    <LanguageTabNavigation/>
   </Container>
   )
   }
