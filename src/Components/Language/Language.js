@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Tab, Tabs, Header, Picker,Body, Title, Left,Button, Icon} from 'native-base';
+import { Container, Content, Tab, Tabs, Header, Picker,Body, Title, Left,Button, Icon,ListView} from 'native-base';
 import {  View, Text, TouchableOpacity } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
@@ -26,37 +26,9 @@ return (
     </Body>
   </Header>
   <Tabs>
-      <Tab heading="Language">
-        
-      </Tab>
-      <Tab heading="Version">
-       <View style={{flex:1,}}>
-       <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Grid>
-        <Row style={styles.container}>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-        </Row>
-        <Row style={styles.container}>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-        </Row>
-        <Row style={styles.container}>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-          <Col style={{borderWidth:1,padding:20}}><Text>{rowData}</Text></Col>
-        </Row>
-      </Grid>}
-        />
-      </View>
-      </Tab>
-  </Tabs>       
+  <Tab heading="Language"></Tab>
+  <Tab heading="Version"></Tab>
+  </Tabs>
   </Container>
   )
   }

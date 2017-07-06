@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,View,TouchableOpacity,StyleSheet,Image} from 'react-native';
+import {Text,View,TouchableOpacity,StyleSheet} from 'react-native';
 import {Right, Icon} from 'native-base';
 import  fileName from './../JsonExample/fileName.json'
 import {Actions} from 'react-native-router-flux' 
@@ -8,8 +8,7 @@ export default class AppBody extends Component {
    constructor(){
         super()
         this.state ={
-            data:[],  
-            
+            data:[]     
           }
           this.getData =this.getData.bind(this);
     }
@@ -18,7 +17,6 @@ export default class AppBody extends Component {
       const data = fileName;
       this.setState({data})  
     }
-    
     componentDidMount() {
         this.getData();
     }
@@ -32,7 +30,7 @@ export default class AppBody extends Component {
                        <View>{data.map(item =>
                         <TouchableOpacity
                         style = {styles.container}
-                         onPress = {this.goToHeaderTab}
+                        onPress = {this.goToHeaderTab}
                         >
                           <Text key={item.id}>{item.id}</Text>
                           <Right>
@@ -42,9 +40,7 @@ export default class AppBody extends Component {
                           )}
                        
                        </View>
-                       <View><Image source={{uri: 'https://www.google.com/photos/about/static/images/hero.jpg'}} style={styles.image} /></View>
                 </View>
-                
                 )
 
        
@@ -54,14 +50,8 @@ export default class AppBody extends Component {
 const styles = StyleSheet.create ({
    container: {
       padding:10,
-      flexDirection:'row',   
+      flexDirection:'row',
+      
    },
-   image: {
-    marginTop: 250,
-    width: 400,
-    height: 165,
-    position: 'absolute',
-    
-  }
    
 })

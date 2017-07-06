@@ -3,20 +3,52 @@ import {Text,View,TouchableOpacity,StyleSheet,Image} from 'react-native';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Icon,Button,Container,Right,Header,Body,Left,Content,Title,Tabs,Tab} from 'native-base';
 import {Navigator, TabNavigator} from 'react-navigation'
-import {Actions} from 'react-native-router-flux'
 import  fileName from './../JsonExample/fileName.json'
-import GridExample1 from "./../GridExample/GridExample1"
+import MainScreen from './MainScreen';
+// import HomePage from './Home/HomePage';
+import SetupScreen from './SetupScreen';
 import ListExample from './../listview/ListExample';
 
- 
+ const TabTogle = TabNavigator({
 
-export default class HomePage extends Component {
-  goToLanguage = () =>{
-    Actions.language()
-  }
+  MainScreen: {
+    screen: MainScreen,
+  },
+  SetupScreen: {
+    screen: SetupScreen,
+  },
+ 
+  })
+
+
+export default class Example extends Component {
+
 
   render() {
     return (
+      // <Container>
+      //   <Header>
+      //     <Left>
+      //       <Button transparent>
+      //         <Icon name='arrow-back' />
+      //       </Button>
+      //     </Left>
+      //     <Body>
+      //       <Title>Header</Title>
+      //     </Body>
+      //     <Right>
+      //       <Button transparent>
+      //         <Icon name='menu' />
+      //       </Button>
+      //     </Right>
+      //   </Header>
+      //   <Content>
+      //     <Button
+      //       onPress={() => this.props.navigation.navigate('MainScreen')}
+      //       title="Go to Lucy's profile"
+      //     />
+      //   </Content>
+      // </Container>
       <Container>
         <Header>
           <Left>
@@ -40,10 +72,7 @@ export default class HomePage extends Component {
                 <ListExample/>
             </Col>
             <Col>
-              <Tabs>
-                <Tab heading="Old Testament "><GridExample1/></Tab>
-                <Tab heading="New Testament"><GridExample1/></Tab>
-              </Tabs>
+              <TabTogle/>
             </Col>
           </Row>
         </Grid>
