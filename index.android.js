@@ -8,12 +8,12 @@ import {
 } from 'react-native';
 
 import AppRouter from './src/Components/routes/Router';
-import App from './src/Components/practice/App';
+import SaveDataExample from './src/Components/practice/SaveDataExample';
 import HomePage from './src/Components/Home/HomePage';
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <AppRouter/>
+      <SaveDataExample/>
     );
   }
 }
