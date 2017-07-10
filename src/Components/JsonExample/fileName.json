@@ -30,3 +30,29 @@
       "ip_address": "214.248.201.11"
     }
 ]
+
+
+// [
+//   {
+//     "id":1,
+//   "stock": 13,
+//   "update_stamp": "2017-05-22T20:19:21Z",
+//   "article": {
+//     "sku": "0761523",
+//     "bar_code": "000-111111011",
+//     "category": null,
+//     "internal_code": "11"
+//   }
+// },
+// {
+//   "id":2,
+//   "stock": 3,
+//   "update_stamp": "2017-05-22T19:38:03Z",
+//   "article": {
+//     "sku": "715491",
+//     "bar_code": "000-111111012",
+//     "category": null,
+//     "internal_code": "12"
+//   }
+// }
+// ]

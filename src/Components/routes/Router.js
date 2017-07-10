@@ -11,7 +11,45 @@ import GridExample1 from '../GridExample/GridExample1'
 import Language from '../Language/Language'
 import {StackNavigator, TabNavigator} from 'react-navigation';
 
+// const Main = StackNavigator({
+//   App: {
+//     screen: App,
+//   },
+//   Test: {
+//     screen: Test,
+//   },
+// })
 
+
+// const Root = TabNavigator({
+//   Main1: {
+//     screen: Main,
+//   },
+//   Main2: {
+//     screen: Main,
+//   },
+// });
+// export default const RouterApp = StackNavigator({
+//   Root:{
+//     screen:Root,
+//   },
+//   Home: {
+//     screen:HomePage,
+//   },
+//   headerTabs: {
+//     screen: HeaderTabs,
+//   },
+//   language:{
+//     screen:Language,
+//   },
+//   gridOne:{
+//     screen:GridExample
+//   },
+//   gridExample:{
+//     gridExample:GridExample1,
+//   },
+
+// })
 
 
 export default class RoutesPage extends Component {

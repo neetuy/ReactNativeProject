@@ -24,7 +24,6 @@ export default class VersionTab extends Component {
 
   static navigationOptions = {
     tabBarLabel: 'Version',
-    // Note: By default the icon is only shown on iOS. Search the showIcon option below.
     tabBarIcon: ({ tintColor }) => (
       <Icon name="menu" />
     ),
