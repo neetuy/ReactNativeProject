@@ -41,7 +41,6 @@ import ListExample from './../listview/ListExample'
 
 
 export default class HomePage extends Component {
-
   goToHome = () =>{
     Actions.home()
   }

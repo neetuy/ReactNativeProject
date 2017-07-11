@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
  wrapper: {
   flex: 1,
   backgroundColor: '#3498db', 
+   alignItems: 'stretch',
+  justifyContent: 'center'
+},
+text:{
+   padding:20,
+   textAlign:'center'
 },
 logoContainer: {
   flexGrow:1,

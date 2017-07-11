@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { View, Image,TextInput, Text, StyleSheet, AsyncStorage } from 'react-native'
+import styles from '../../style/style';
 
 export default class SaveDataExample extends Component {
    constructor() {
       super()
       this.state = {
-         myKey:"",
+         myKey:'',
       }
-      // this.submit = this.submit.bind(this);
     }
     saveData = (value) => {  
       AsyncStorage.setItem('myKey',value)
@@ -22,12 +22,12 @@ export default class SaveDataExample extends Component {
    render(){
       return(
         <View style={styles.wrapper}>
-        <Text style={styles.text}>{this.state.myKey}</Text>
-        <View>
+        <View style={styles.containerLoginForm}>
+          <Text style={styles.text}>{this.state.myKey}</Text>
           <TextInput 
-          style={styles.inputForm}
-          onChangeText = {(text) =>this.saveData(text)}
-          value=""
+            style={styles.inputLoginForm}
+            placeholder = 'type'
+            onChangeText = {(text) =>this.saveData(text)}
           />
         </View>  
         </View>
@@ -35,23 +35,3 @@ export default class SaveDataExample extends Component {
    }
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-  flex: 1,
-  padding:30,
-  backgroundColor: '#3498db', 
-  alignItems: 'stretch',
-  justifyContent: 'center',
-},
-  
-inputForm:{
-  height:40,
-  color: '#fff',
-  backgroundColor: 'rgba(255,255,255,0.2)',
-  
-},
-text:{
-  textAlign:'center',
-  fontSize:18
-}
-})
