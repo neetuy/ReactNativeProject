@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image, Text, StyleSheet, AsyncStorage } from 'react-native'
+import { View, Image, Text, StyleSheet, AsyncStorage ,TouchableHighlight} from 'react-native'
 import LoginForm from './LoginForm';
 import { Actions } from 'react-native-router-flux';
 import styles from '../../style/style';
@@ -87,6 +87,9 @@ export default class Login extends Component {
               data = {this.state.data}
               submit = {this.submit}
             />
+            <TouchableHighlight>
+              <Text>submit</Text>
+            </TouchableHighlight>
           </View>  
         </View>
       )

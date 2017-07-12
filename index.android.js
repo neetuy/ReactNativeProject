@@ -15,7 +15,7 @@ import Form from './src/Components/Form/Form';
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <Form/>
+      <SaveDataExample/>
     );
   }
 }

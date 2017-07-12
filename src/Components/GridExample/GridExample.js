@@ -32,7 +32,7 @@ export default class AppBody extends Component {
                         style = {styles.container}
                         onPress = {this.goToHeaderTab}
                         >
-                          <Text key={item.id}>{item.id}</Text>
+                          <Text key={item.id}>{item.name}</Text>
                           <Right>
                             <Icon name="ios-arrow-forward"/>
                           </Right>

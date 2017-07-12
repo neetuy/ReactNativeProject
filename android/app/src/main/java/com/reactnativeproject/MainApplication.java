@@ -1,5 +1,7 @@
 package com.reactnativeproject;
 
+import org.pgsqlite.SQLitePluginPackage;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 
 import android.app.Application;
@@ -26,8 +28,10 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+          new SQLitePluginPackage(), 
           new ReactNativeIcons(),
           new VectorIconsPackage()
+
       );
     }
   };

@@ -10,7 +10,12 @@ const styles = StyleSheet.create({
 },
 text:{
    padding:20,
-   textAlign:'center'
+   textAlign:'center',
+},
+button:{
+   padding:20,
+   textAlign:'center',
+   backgroundColor:'#fff'
 },
 logoContainer: {
   flexGrow:1,

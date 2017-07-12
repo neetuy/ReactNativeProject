@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Image,TextInput, Text, StyleSheet, AsyncStorage } from 'react-native'
+import { View, Image,TextInput, Text, StyleSheet, AsyncStorage,TouchableOpacity } from 'react-native'
 import styles from '../../style/style';
 
 export default class SaveDataExample extends Component {
@@ -13,7 +13,7 @@ export default class SaveDataExample extends Component {
       AsyncStorage.setItem('myKey',value)
       this.setState({myKey: value});
      }
-     componentDidMount(){
+     getData = () =>{
       AsyncStorage.getItem('myKey').then((value) =>{
         this.setState({'myKey': value})
       }).done();
@@ -29,9 +29,11 @@ export default class SaveDataExample extends Component {
             placeholder = 'type'
             onChangeText = {(text) =>this.saveData(text)}
           />
+          <TouchableOpacity onPress={this.getData}>
+            <Text style ={styles.button}>submit</Text>
+          </TouchableOpacity>
         </View>  
         </View>
       )
    }
 }
-
