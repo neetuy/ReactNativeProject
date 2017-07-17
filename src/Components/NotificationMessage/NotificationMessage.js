@@ -77,7 +77,7 @@ export default class NotificationMessage extends Component {
       <View style={styles.container}>
         <Text style={styles.titleText}>React Native Notifications</Text> 
         <TouchableHighlight onPress={() => this.onPostNotification()}>
-          <Text style={styles.mainButtonText}>Try Me!</Text>
+          <Text style={styles.mainButtonText}> press for Notification!</Text>
         </TouchableHighlight>
       </View>
     )
@@ -99,7 +99,6 @@ const styles = StyleSheet.create({
   
   mainButtonText: {
     fontSize: 25,
-    fontStyle: 'italic',
     fontWeight: 'bold',
     textAlign: 'center',
     margin: 10,
