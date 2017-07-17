@@ -6,6 +6,8 @@ import com.oblador.vectoricons.VectorIconsPackage;
 
 import android.app.Application;
 
+import com.wix.reactnativenotifications.RNNotificationsPackage;
+
 import com.facebook.react.ReactApplication;
 import com.smixx.reactnativeicons.ReactNativeIcons;
 import com.facebook.react.ReactNativeHost;
@@ -30,6 +32,7 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new SQLitePluginPackage(), 
           new ReactNativeIcons(),
+          new RNNotificationsPackage(MainApplication.this),
           new VectorIconsPackage()
 
       );

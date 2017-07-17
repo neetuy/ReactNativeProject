@@ -12,22 +12,23 @@ import ListExample from './../listview/ListExample'
  const TabTogle = StackNavigator({
   Book: {
     screen: Book,
-    params: {
-    }
   },
   Verse: {
     screen: Verse,
   },
-  },
-  
 
+  },
+  {
+     headerMode: 'none',
+  }
 
   )
 
  const Root = TabNavigator({
-  Book: {
+  Book1: {
     screen: TabTogle,
   },
+  
 },
 {
   tabBarOptions : {

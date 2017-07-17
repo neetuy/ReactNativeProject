@@ -16,7 +16,6 @@ export default class DatabaseExample extends Component {
     super(props)
 
     this.state = {
-      record: null,
       rows:[]
     }
 
