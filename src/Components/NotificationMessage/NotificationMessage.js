@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-import {NotificationsAndroid, PendingNotifications} from 'react-native-notifications';
+import {NotificationsAndroid} from 'react-native-notifications';
 
 let mainScreen;
 
@@ -47,7 +47,6 @@ export default class NotificationMessage extends Component {
       lastNotification: undefined
     };
 
-    console.log('ReactScreen', 'ReactScreen');
     mainScreen = this;
 
     
