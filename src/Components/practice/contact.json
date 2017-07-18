@@ -1,0 +1,36 @@
+[
+	{
+      "id": 1,
+      "gender": "Female",
+      "first_name": "abc",
+      "last_name": "xyz",
+      "email": "abcxyz.com",
+      "mobile_no":"9988776655",
+      "ip_address": "227.211.25.18"
+    }, {
+      "id": 2,
+      "gender": "Male",
+      "first_name": "def",
+      "last_name": "uvw",
+      "email": "defuvw.org",
+      "mobile_no":"9988566655",
+      "ip_address": "214.248.201.11"
+    },
+    {
+      "id": 3,
+      "gender": "Female",
+      "first_name": "ghi",
+      "last_name": "rst",
+      "email": "ghirst.com",
+      "mobile_no":"9988776455",
+      "ip_address": "227.211.25.18"
+    }, {
+      "id": 4,
+      "gender": "Male",
+      "first_name": "jkl",
+      "last_name": "opq",
+      "email": "jklopq.org",
+      "mobile_no":"9923476655",
+      "ip_address": "214.248.201.11"
+    }
+]

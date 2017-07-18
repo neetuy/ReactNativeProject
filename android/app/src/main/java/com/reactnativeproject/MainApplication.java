@@ -8,6 +8,8 @@ import android.app.Application;
 
 import com.wix.reactnativenotifications.RNNotificationsPackage;
 
+import com.rt2zz.reactnativecontacts.ReactNativeContacts; 
+
 import com.facebook.react.ReactApplication;
 import com.smixx.reactnativeicons.ReactNativeIcons;
 import com.facebook.react.ReactNativeHost;
@@ -33,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
           new SQLitePluginPackage(), 
           new ReactNativeIcons(),
           new RNNotificationsPackage(MainApplication.this),
+           new ReactNativeContacts(),
           new VectorIconsPackage()
 
       );
