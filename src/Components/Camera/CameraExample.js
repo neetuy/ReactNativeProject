@@ -8,6 +8,65 @@ import {
 } from 'react-native';
 import Camera from 'react-native-camera';
 
+
+export default class CameraExample extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.camera = null;
+
+    this.state = {
+      camera: {
+        aspect: Camera.constants.Aspect.fill,
+        captureTarget: Camera.constants.CaptureTarget.cameraRoll,
+        
+      },
+      isRecording: false
+    };
+  }
+
+  takePicture = () => {
+    if (this.camera) {
+      this.camera.capture()
+        .then((data) => console.log(data))
+        .catch(err => console.error(err));
+    }
+  }  
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar
+          animated
+          hidden
+        />
+        <Camera
+          ref={(cam) => {
+            this.camera = cam;
+          }}
+          style={styles.preview}
+          aspect={this.state.camera.aspect}
+          captureTarget={this.state.camera.captureTarget}
+          defaultTouchToFocus
+        />       
+        <View style={[styles.overlay, styles.bottomOverlay]}>
+          {
+            <TouchableOpacity
+                style={styles.captureButton}
+                onPress={this.takePicture}
+            >
+              <Image
+                  source={require('./img/ic_photo_camera_36pt.png')}
+              />
+            </TouchableOpacity>
+            
+          }
+        </View>
+      </View>
+    );
+  }
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -53,68 +112,3 @@ const styles = StyleSheet.create({
     width: 10,
   },
 });
-
-export default class Example extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.camera = null;
-
-    this.state = {
-      camera: {
-        aspect: Camera.constants.Aspect.fill,
-        captureTarget: Camera.constants.CaptureTarget.cameraRoll,
-        type: Camera.constants.Type.back,
-        orientation: Camera.constants.Orientation.auto,
-        flashMode: Camera.constants.FlashMode.auto,
-      },
-      isRecording: false
-    };
-  }
-
-  takePicture = () => {
-    if (this.camera) {
-      this.camera.capture()
-        .then((data) => console.log(data))
-        .catch(err => console.error(err));
-    }
-  }  
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar
-          animated
-          hidden
-        />
-        <Camera
-          ref={(cam) => {
-            this.camera = cam;
-          }}
-          style={styles.preview}
-          aspect={this.state.camera.aspect}
-          captureTarget={this.state.camera.captureTarget}
-          type={this.state.camera.type}
-          flashMode={this.state.camera.flashMode}
-          onFocusChanged={() => {}}
-          onZoomChanged={() => {}}
-          defaultTouchToFocus
-          mirrorImage={false}
-        />
-        
-        <View style={[styles.overlay, styles.bottomOverlay]}>
-          {
-            <TouchableOpacity
-                style={styles.captureButton}
-                onPress={this.takePicture}
-            >
-              <Image
-                  source={require('./img/ic_photo_camera_36pt.png')}
-              />
-            </TouchableOpacity>
-            
-          }
-        </View>
-      </View>
-    );
-  }
-}

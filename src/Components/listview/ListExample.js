@@ -1,18 +1,27 @@
 import React, { Component } from 'react';
 import { Container, Content, List, ListItem,Icon} from 'native-base';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux'
 
-const ListExample = () => {
-  return (
+class ListExample extends Component{
+
+  goToCamera = () =>{
+    Actions.camera()
+  }
+
+  render(){
+    return (
     <Container>
       <Content style={{backgroundColor:'#000'}}>
         <List>
-          <ListItem style={{borderBottomWidth: 0}}> 
-              <Icon name="ios-person" style={{color:'#fff'}}/>
-          </ListItem>
+         <ListItem  style={{borderBottomWidth: 0}}>
+          <TouchableOpacity onPress ={this.goToCamera}>
+              <Icon name="ios-image" style={{color:'#fff'}}/>
+          </TouchableOpacity>
+        </ListItem>
           <ListItem  style={{borderBottomWidth: 0}}>
              <Icon name="ios-search" style={{color:'#fff'}}/>
-          </ListItem >
+          </ListItem>
           <ListItem  style={{borderBottomWidth: 0}}>
               <Icon name="timer" style={{color:'#fff'}}/>
           </ListItem>
@@ -32,5 +41,7 @@ const ListExample = () => {
       </Content>
     </Container>
   );
+  }
+  
 };
  export default ListExample 
