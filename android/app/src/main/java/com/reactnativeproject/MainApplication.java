@@ -12,6 +12,8 @@ import com.rt2zz.reactnativecontacts.ReactNativeContacts;
 
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 
+import com.imagepicker.ImagePickerPackage;
+
 import com.facebook.react.ReactApplication;
 import com.smixx.reactnativeicons.ReactNativeIcons;
 import com.facebook.react.ReactNativeHost;
@@ -39,6 +41,7 @@ public class MainApplication extends Application implements ReactApplication {
           new RNNotificationsPackage(MainApplication.this),
           new ReactNativeContacts(),
           new RCTCameraPackage(),
+          new ImagePickerPackage(),
           new VectorIconsPackage()
 
       );
