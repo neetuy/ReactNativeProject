@@ -24,7 +24,8 @@ export default class App extends React.Component {
       maxWidth: 500,
       maxHeight: 500,
       storageOptions: {
-        skipBackup: true
+          skipBackup: false,
+          path: avatarSource
       }
     };
 
@@ -56,7 +57,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         
           <View style={[styles.avatar, styles.avatarContainer, {marginBottom: 20}]}>
-          { this.state.avatarSource === null ? <Text>Select a Photo</Text> :
+          { this.state.avatarSource === null ? <Text>Profile Photo</Text> :
             <Image style={styles.avatar} source={this.state.avatarSource} />
           }
           </View>
