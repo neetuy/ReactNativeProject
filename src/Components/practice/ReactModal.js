@@ -58,7 +58,7 @@ export default class persistingData extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>
-          Persisting Data
+           Profile Data
         </Text>
 
       <Text>Name</Text>
@@ -93,10 +93,10 @@ export default class persistingData extends Component {
           <Text style={styles.buttonText}> CLEAR </Text>
         </TouchableHighlight>
         <View>
-          <Text>PERSISTENCE DATA:</Text>
+          <Text>Profile Data:</Text>
           <Text>Name: {this.state.persistedName}</Text>
           <Text>Phone: {this.state.persistedPhone}</Text>
-          <Text>Phone: {this.state.persistedGender}</Text>
+          <Text>Email: {this.state.persistedGender}</Text>
         </View>
 
       </View>
