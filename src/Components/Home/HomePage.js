@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,View,TouchableOpacity,StyleSheet,Image} from 'react-native';
+import {Text,View,TouchableOpacity,StyleSheet,Image,Easing} from 'react-native';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Icon,Button,Container,Right,Header,Body,Left,Content,Title,Tabs,Tab,Drawer} from 'native-base';
 import {Navigator, TabNavigator} from 'react-navigation'

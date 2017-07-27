@@ -14,6 +14,8 @@ import com.lwansbrough.RCTCamera.RCTCameraPackage;
 
 import com.imagepicker.ImagePickerPackage;
 
+import com.zmxv.RNSound.RNSoundPackage;
+
 import com.facebook.react.ReactApplication;
 import com.smixx.reactnativeicons.ReactNativeIcons;
 import com.facebook.react.ReactNativeHost;
@@ -42,6 +44,7 @@ public class MainApplication extends Application implements ReactApplication {
           new ReactNativeContacts(),
           new RCTCameraPackage(),
           new ImagePickerPackage(),
+          new RNSoundPackage(),
           new VectorIconsPackage()
 
       );
