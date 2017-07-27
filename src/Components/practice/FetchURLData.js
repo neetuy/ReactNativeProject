@@ -22,7 +22,7 @@ export default class FetchExample extends Component {
       <View>
       {
         data.map(items =>
-          <Text>{items}</Text>
+          <Text style={styles.textCustom}>{items}</Text>
           )
       }
       </View>
@@ -44,5 +44,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
+  },
+  textCustom:{
+    fontSize:18,
+    color:'blue',
   }
 });
+

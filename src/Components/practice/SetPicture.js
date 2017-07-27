@@ -15,7 +15,8 @@ export default class App extends React.Component {
 
   state = {
     avatarSource: null,
-    videoSource: null
+    videoSource: null,
+    setImage:''
   };
 
   selectPhotoTapped() {

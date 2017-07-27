@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text,View,TouchableOpacity,StyleSheet,Image} from 'react-native';
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { Icon,Button,Container,Right,Header,Body,Left,Content,Title,Tabs,Tab} from 'native-base';
+import { Icon,Button,Container,Right,Header,Body,Left,Content,Title,Tabs,Tab,Drawer} from 'native-base';
 import {Navigator, TabNavigator} from 'react-navigation'
 import {Actions} from 'react-native-router-flux'
 import  fileName from './../JsonExample/fileName.json'
@@ -15,14 +15,29 @@ export default class HomePage extends Component {
     Actions.language()
   }
 
+  openDrawer() {
+    this._drawer._root.open();
+  }
+  closeDrawer() {
+    this._drawer._root.close();
+  }
   render() {
     return (
+      <Drawer
+        ref={(ref) => { this._drawer = ref; }}
+        content={<ListExample/>}
+        onClose={() => this.closeDrawer()}
+        openDrawerOffset={340}
+      >
       <Container>
         <Header>
           <Left>
-            <Title>
-              Autographa Go
-            </Title>
+            <Button
+                transparent
+                onPress={() => this.openDrawer()}
+              >
+                <Icon name='menu' />
+              </Button>
           </Left>
           <TouchableOpacity onPress={this.goToLanguage}>
           <Right style={{top:-15}}>
@@ -36,9 +51,7 @@ export default class HomePage extends Component {
         <Content>
         <Grid>
           <Row>
-            <Col style={{ width: 70 }}>     
-                <ListExample/>
-            </Col>
+            
             <Col>
               <Tabs>
                 <Tab heading="Old Testament "><GridExample1/></Tab>
@@ -49,6 +62,7 @@ export default class HomePage extends Component {
         </Grid>
         </Content>
       </Container>
+    </Drawer>
     );
 
   }
