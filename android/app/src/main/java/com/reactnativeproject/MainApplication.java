@@ -16,6 +16,8 @@ import com.imagepicker.ImagePickerPackage;
 
 import com.zmxv.RNSound.RNSoundPackage;
 
+import com.airbnb.android.react.maps.MapsPackage;
+
 import com.facebook.react.ReactApplication;
 import com.smixx.reactnativeicons.ReactNativeIcons;
 import com.facebook.react.ReactNativeHost;
@@ -45,6 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
           new RCTCameraPackage(),
           new ImagePickerPackage(),
           new RNSoundPackage(),
+          new MapsPackage(),
           new VectorIconsPackage()
 
       );
