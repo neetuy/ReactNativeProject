@@ -28,17 +28,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
   },
-  inputText: {
-    height: 36,
-      padding: 4,
-      marginRight: 5,
-      flex: 4,
-      fontSize: 18,
-      borderWidth: 1,
-      borderColor: '#48BBEC',
-      borderRadius: 8,
-      color: '#48BBEC'
-  }
 });
 
 class MapPage extends Component{
@@ -47,8 +36,8 @@ class MapPage extends Component{
         super(props);
         this.state = {
             region:{
-                latitude: 45.65,
-                longitude: -78.90,
+                latitude:28.655,
+                longitude: 77.244,
             latitudeDelta: 10,
             longitudeDelta: 5
             }
@@ -59,7 +48,6 @@ class MapPage extends Component{
 
         return(
             <View style={styles.container}>
-                <TextInput style={styles.inputText}></TextInput>
                 <MapView 
                     style={ styles.map }
                     mapType={"standard"}
@@ -69,10 +57,10 @@ class MapPage extends Component{
                     showsScale={true}
                   >
                   <MapView.Marker
-                    coordinate={{latitude: 45.65,
-                    longitude: -78.90}}
-                    title={"title"}
-                    description={"description"}
+                    coordinate={{latitude: 28.655,
+                    longitude: 77.244}}
+                    title={"New Delhi"}
+                    description={"Heart Of India"}
                  />
                   </MapView>
             </View>
