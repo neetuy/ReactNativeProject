@@ -8,7 +8,7 @@ import {
   TextInput,
   TouchableHighlight,
   Dimensions,
- //MapView,
+  Button
 } from 'react-native';
 
 import MapView from 'react-native-maps';
@@ -70,3 +70,5 @@ class MapPage extends Component{
 
 
 module.exports = MapPage;
+
+

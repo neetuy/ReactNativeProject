@@ -17,12 +17,13 @@ import NotificationMessage from './src/Components/NotificationMessage/Notificati
 import DatabaseExample from './src/Components/DatabaseExample/DatabaseExample';
 import HomePage from './src/Components/Home/HomePage';
 import DataUrl from './src/Components/practice/DataUrl';
+import MapDirections from './src/Components/practice/MapDirections'
 
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <DataUrl/>
+      <MapDirections/>
     );
   }
 }

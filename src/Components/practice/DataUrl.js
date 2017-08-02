@@ -37,8 +37,6 @@ export default class DataUrl extends Component {
         })
        
     }
-
-
     onPressButtonPOST = () => {
          this.setState({ isLoading: true });
         fetch("https://reqres.in/api/users", {method: "POST", body: JSON.stringify("first_name":"Neetu","last_name":"Yadav","job":"Developer")})
@@ -87,8 +85,8 @@ var styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        margin:20,
-        backgroundColor: '#F5FCFF',
+        margin:40,
+        
     },
    
 });
