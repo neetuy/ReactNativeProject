@@ -18,8 +18,6 @@ export default class DataUrl extends Component {
             data:''
         }
   }
-
-    
     onPressButtonGET = () =>{
         this.setState({ isLoading: true });
         fetch("https://reqres.in/api/users/2", {method: "GET"})
@@ -72,12 +70,12 @@ export default class DataUrl extends Component {
         return (
                 <View style={styles.container}>
                 <TouchableHighlight onPress={this.onPressButtonGET}>
-                    <Text>{this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/>:<Text>Get</Text>}</Text>
+                    <Text>Get</Text>
                 </TouchableHighlight>
                 <TouchableHighlight onPress={this.onPressButtonPOST}>
-                     <Text>{this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/>:<Text>Post</Text>}</Text>
+                     <Text>Post</Text>
                 </TouchableHighlight>
-                   
+                {this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/> : null}  
             </View>
         
             
