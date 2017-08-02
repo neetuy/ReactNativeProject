@@ -21,7 +21,7 @@ export default class DataUrl extends Component {
 
     
     onPressButtonGET = () =>{
-       this.setState({ isLoading: true });
+        this.setState({ isLoading: true });
         fetch("https://reqres.in/api/users/2", {method: "GET"})
         .then((response) => response.json())
         .then((responseData) => {
@@ -32,6 +32,7 @@ export default class DataUrl extends Component {
               isLoading: false,
               data: JSON.stringify(responseData)
             }); 
+            
         }) 
         .catch((error) =>{
             console.log(error);
@@ -41,12 +42,17 @@ export default class DataUrl extends Component {
 
 
     onPressButtonPOST = () => {
+         this.setState({ isLoading: true });
         fetch("https://reqres.in/api/users", {method: "POST", body: JSON.stringify("first_name":"Neetu","last_name":"Yadav","job":"Developer")})
         .then((response) => response.json())
         .then((responseData) => {
             alert(
                 JSON.stringify(responseData)
             ) 
+            this.setState({
+              isLoading: false,
+              
+            }); 
             
         })
         .catch((error) =>{
@@ -66,10 +72,10 @@ export default class DataUrl extends Component {
         return (
                 <View style={styles.container}>
                 <TouchableHighlight onPress={this.onPressButtonGET}>
-               <Text>{this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/>:<Text>GET</Text>}</Text>
+                    <Text>{this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/>:<Text>Get</Text>}</Text>
                 </TouchableHighlight>
                 <TouchableHighlight onPress={this.onPressButtonPOST}>
-                    <Text>POST</Text>
+                     <Text>{this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/>:<Text>Post</Text>}</Text>
                 </TouchableHighlight>
                    
             </View>
