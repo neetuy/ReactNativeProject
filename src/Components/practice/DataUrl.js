@@ -4,31 +4,50 @@ import {
     Text,
     View,
     TouchableHighlight,
-    AlertIOS,
+    Image
+   
 } from 'react-native';
+import { Icon } from 'native-base'
+ 
 export default class DataUrl extends Component {
 
-    onPressButtonGET() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: true,
+            data:''
+        }
+  }
+
+    
+    onPressButtonGET = () =>{
+       this.setState({ isLoading: true });
         fetch("https://reqres.in/api/users/2", {method: "GET"})
         .then((response) => response.json())
         .then((responseData) => {
-            alert(
+               alert(
                  JSON.stringify(responseData)
             )
-        })
+            this.setState({
+              isLoading: false,
+              data: JSON.stringify(responseData)
+            }); 
+        }) 
         .catch((error) =>{
             console.log(error);
-
         })
        
     }
-    onPressButtonPOST() {
+
+
+    onPressButtonPOST = () => {
         fetch("https://reqres.in/api/users", {method: "POST", body: JSON.stringify("first_name":"Neetu","last_name":"Yadav","job":"Developer")})
         .then((response) => response.json())
         .then((responseData) => {
             alert(
                 JSON.stringify(responseData)
-            )
+            ) 
+            
         })
         .catch((error) =>{
             console.log(error);
@@ -36,20 +55,29 @@ export default class DataUrl extends Component {
         })
        
     }
+    componentDidMount() {
+         var self = this;
+        setTimeout(function () {
+            self.setState({ isLoading: false });
+        }, 30);
+    }
     render() {
+      
         return (
-            <View style={styles.container}>
+                <View style={styles.container}>
                 <TouchableHighlight onPress={this.onPressButtonGET}>
-                    <Text>GET</Text>
+               <Text>{this.state.isLoading ? <Image style={{width: 40, height: 40}} source={require('./img/Ajax-loader.gif')}/>:<Text>GET</Text>}</Text>
                 </TouchableHighlight>
                 <TouchableHighlight onPress={this.onPressButtonPOST}>
                     <Text>POST</Text>
-                </TouchableHighlight>   
+                </TouchableHighlight>
+                   
             </View>
-
+        
+            
         );
     }
-}
+ }
 var styles = StyleSheet.create({
     container: {
         flex: 1,
