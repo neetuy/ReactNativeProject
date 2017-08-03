@@ -1,150 +1,125 @@
-// import React from 'react'
-// import {
-//   StyleSheet,
-//   Text,
-//   TextInput,
-//   TouchableOpacity,
-//   View
-// } from 'react-native'
-
-// import sqlite from 'react-native-sqlite-storage'
-
-// var databaseName = 'app.db'
- 
-// sqlite.init(databaseName)
-//     .then((_) => {
-//         console.log('database initialized.')
-//     }
-// )
-// const Form = () => {
-//   return (
-//     <View style={styles.container}>
-//       <TextInput 
-//       style={styles.input}
-//       placeholder="id" 
-//       />
-//       <TextInput 
-//       style={styles.input}
-//       placeholder="name" 
-//       />
-//       <TextInput 
-//       style={styles.input}
-//       placeholder="phone" 
-//       />
-//       <TextInput 
-//       style={styles.input}
-//       placeholder="email" 
-//       />
-//       <TouchableOpacity>
-//         <Text style={styles.button}>Submit</Text>
-//       </TouchableOpacity>
-//     </View>
-//   )
-// }
-
-// export default Form
-
-// const styles = StyleSheet.create({
-//   button: {
-//     backgroundColor: 'blue',
-//     color: 'white',
-//     height: 30,
-//     lineHeight: 30,
-//     marginTop: 10,
-//     textAlign: 'center',
-//     width: 250
-//   },
-//   container: {
-//     flex:1,
-//     padding:20,
-//     backgroundColor: '#eee',
-//     alignItems: 'center',
-//     justifyContent: 'center'
-//   },
-//   input: {
-//     height: 37,
-//     width: 250,
-//     padding:10,
-//     borderBottomWidth:0
-//   }
-// })
-
-
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
+  
   Text,
   View
 } from 'react-native';
+import { Input, Icon, Picker,Radio, Button, ListItem, Right, CheckBox, Body, InputGroup,Header, Title} from 'native-base';
+   const Item = Picker.Item
 
-let SQLite = require('react-native-sqlite-storage')
+export default class FormExample extends Component {
 
-export default class PrepopulatedDatabaseExample extends Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      record: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            radio1: false,
+            radio2: false,
+            checkbox1: false,
+            checkbox2: false,
+            selectedItem: undefined,
+            selected1: 'key1',
+            results: {
+                items: []
+            }
+        }
     }
 
-    let db = SQLite.openDatabase({name: 'test.db', createFromLocation : "~example.db", location: 'Library'}, this.openCB, this.errorCB);
-    db.transaction((tx) => {
-      tx.executeSql('SELECT * FROM test', [], (tx, results) => {
-          console.log("Query completed");
-          var len = results.rows.length;
-          for (let i = 0; i < len; i++) {
-            let row = results.rows.item(i);
-            console.log(`Record: ${row.name}`);
-            this.setState({record: row});
-          }
-        });
+    toggleRadio1 = () =>{
+    this.setState({
+      radio1: true,
+      radio2: false,
+      
     });
-
+}
+    toggleRadio2 = () =>{
+    this.setState({
+      radio1: false,
+      radio2: true,
+    });
+  }
+  toggleSwitch1 = () =>{
+    this.setState({
+      checkbox1: !this.state.checkbox1,
+    });
   }
 
-  errorCB(err) {
-    console.log("SQL Error: " + err);
+  toggleSwitch2 = ()=> {
+    this.setState({
+      checkbox2: !this.state.checkbox2,
+    });
   }
+  onValueChange = ( value: string) =>{
+        this.setState({
+            selected1 : value
+        });
+    }
 
-  successCB() {
-    console.log("SQL executed fine");
-  }
-
-  openCB() {
-    console.log("Database OPENED");
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          This is an example with sqlite3 and a prepopulated database. Enjoy!
-        </Text>
-        <Text style={styles.instructions}>
-          {this.state.record !== null ? 'Success: ' + this.state.record.name : 'Waiting...'}
-        </Text>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <View style={{flex:1}}>    
+                <Title>
+                Form
+                </Title>
+                <ListItem>
+                    <InputGroup>
+                        <Icon name='ios-person' />
+                        <Input placeholder='Email' />
+                    </InputGroup>
+                </ListItem>
+                <ListItem>
+                    <InputGroup>
+                        <Icon name='ios-unlock' />
+                        <Input placeholder='Password' secureTextEntry={true}/>
+                    </InputGroup>
+                </ListItem>
+                <ListItem>
+                    <InputGroup>
+                        <Input inlineLabel label='NAME' placeholder='Name' />
+                    </InputGroup>
+                </ListItem>
+                <ListItem>
+                <Text style={{marginRight:20,MarginLeft:20}}>Gender</Text>
+                    <Radio
+                        style={{marginRight:10}}
+                        selected={this.state.radio1}
+                        onPress={() => this.toggleRadio1()}
+                    />
+                    <Text style={{marginRight:20,MarginLeft:20}}>Male</Text>
+                    <Radio
+                        style={{marginRight:10}}
+                        selected={this.state.radio2}
+                        onPress={() => this.toggleRadio2()}
+                        />
+                        <Text style={{marginRight:20,MarginLeft:20}}>Female</Text>    
+                </ListItem>
+                <ListItem>
+                <Text style={{marginRight:20,MarginLeft:20}}>Qualification</Text>
+                    <CheckBox style={{marginRight:20}} checked={this.state.checkbox1} onPress={() => this.toggleSwitch1()} />
+                        <Text style={{marginRight:20,MarginLeft:20}}>B.Tech</Text>
+                    <CheckBox style={{marginRight:20}} checked={this.state.checkbox2} onPress={() => this.toggleSwitch2()} />
+                        <Text style={{marginRight:20,MarginLeft:20}}>M.Tech</Text>
+                </ListItem>
+                <ListItem>
+                    <InputGroup >
+                        <Input inlineLabel label='NAME' placeholder='Address' />
+                    </InputGroup>
+                </ListItem>
+                <Picker
+                        Header="Options"
+                        mode="dropdown"
+                        selectedValue={this.state.selected1}
+                        onValueChange={this.onValueChange}>
+                        <Item label="1" value="key0" />
+                        <Item label="2" value="key1" />
+                        <Item label="3" value="key2" />
+                        <Item label="4" value="key3" />
+                   </Picker>
+            <Button style={{ alignSelf: 'center', marginTop: 20, marginBottom: 20 }}>
+               <Text> Submit</Text>
+            </Button>
+            </View>
+        )
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
