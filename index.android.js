@@ -22,11 +22,12 @@ import MapDirections from './src/Components/practice/MapDirections'
 import GestureExample from './src/Components/practice/GestureExample'
 import CircularImageView from './src/Components/practice/CircularImageView'
 import Form from './src/Components/Form/Form';
+import AnimationExample from './src/Components/practice/AnimationExample'
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <ListViewCustom/>
+      <AnimationExample/>
     );
   }
 }
