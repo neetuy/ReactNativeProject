@@ -19,12 +19,13 @@ import DatabaseExample from './src/Components/DatabaseExample/DatabaseExample';
 import HomePage from './src/Components/Home/HomePage';
 import DataUrl from './src/Components/practice/DataUrl';
 import MapDirections from './src/Components/practice/MapDirections'
+import GestureExample from './src/Components/practice/GestureExample'
 import Form from './src/Components/Form/Form';
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <ListViewCustom/>
+      <GestureExample/>
     );
   }
 }
