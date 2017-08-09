@@ -27,7 +27,7 @@ import AnimationExample2 from './src/Components/practice/AnimationExample2'
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <AnimationExample/>
+      <ListViewCustom/>
     );
   }
 }

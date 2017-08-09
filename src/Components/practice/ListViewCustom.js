@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,View,TouchableOpacity,StyleSheet,Image,ListView,ScrollView,StatusBar} from 'react-native';
+import {Text,View,TouchableOpacity,StyleSheet,Image,ListView,ScrollView,StatusBar,RefreshControl} from 'react-native';
 import {Right, Icon, ListItem,List,Header,Body,Title} from 'native-base';
 import  customListView from './customListView.json'
 import {Actions} from 'react-native-router-flux' 
@@ -9,6 +9,7 @@ export default class AppBody extends Component {
         super()
         this.state ={
             data:[],
+            refreshing: false,
 
           }
           this.getData =this.getData.bind(this);
@@ -21,6 +22,14 @@ export default class AppBody extends Component {
     componentDidMount() {
         this.getData();
     }
+     _onRefresh() {
+      const data = customListView;
+        this.setState({refreshing: true});
+        this.setState({data});
+        this.setState({refreshing: false});
+        
+      }
+
     render() {
       let data = this.state.data;
           return (
@@ -33,7 +42,14 @@ export default class AppBody extends Component {
                         </Title>
                       </Body>
                     </Header>
-                       <ScrollView>{data.map(item =>
+                       <ScrollView
+                       refreshControl={
+                        <RefreshControl
+                          refreshing={this.state.refreshing}
+                          onRefresh={this._onRefresh.bind(this)}
+                        />
+                      }
+                       >{data.map(item =>
                           <List key={item.id}>
                             <ListItem>
                               <Image style={styles.photo} source={{uri:item.image}}/>
