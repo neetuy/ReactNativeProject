@@ -8,7 +8,6 @@
 		"react-devtools": "react-devtools"
 	},
 	"dependencies": {
-		"@remobile/react-native-sqlite": "^1.0.2",
 		"anymatch": "^1.3.0",
 		"native-base": "^2.1.5",
 		"react": "^16.0.0-alpha.12",
