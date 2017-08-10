@@ -28,6 +28,7 @@
 		"react-native-router-flux": "^3.40.1",
 		"react-native-searchbar": "^1.11.0",
 		"react-native-sound": "^0.10.3",
+		"react-native-splash-screen": "^2.1.0",
 		"react-native-sqlite-storage": "^3.3.1",
 		"react-native-tab-view": "0.0.66",
 		"react-native-tabs": "^1.0.9",

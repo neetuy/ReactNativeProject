@@ -3,6 +3,8 @@ import {Text,View,TouchableOpacity,StyleSheet,Image,ListView,ScrollView,StatusBa
 import {Right, Icon, ListItem,List,Header,Body,Title} from 'native-base';
 import  customListView from './customListView.json'
 import {Actions} from 'react-native-router-flux' 
+import SplashScreen from 'react-native-splash-screen'
+
 
 export default class AppBody extends Component {
    constructor(){
@@ -20,6 +22,7 @@ export default class AppBody extends Component {
       this.setState({data})  
     }
     componentDidMount() {
+        SplashScreen.hide();
         this.getData();
     }
      _onRefresh() {

@@ -24,6 +24,7 @@ import CircularImageView from './src/Components/practice/CircularImageView'
 import Form from './src/Components/Form/Form';
 import AnimationExample from './src/Components/practice/AnimationExample'
 import AnimationExample2 from './src/Components/practice/AnimationExample2'
+
 export default class ReactNativeProject extends Component {
   render() {
     return (
