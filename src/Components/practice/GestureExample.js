@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
-
+import SplashScreen from 'react-native-splash-screen'
 export default class GestureExample extends Component {
   constructor(){
     super()
@@ -26,6 +26,10 @@ export default class GestureExample extends Component {
       lastPress: new Date().getTime()
     })
   }
+  componentDidMount() {
+        SplashScreen.hide();
+        
+    }
   render() {
     return (
       <View style={styles.container}>

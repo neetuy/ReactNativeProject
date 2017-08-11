@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import {Text,View,TouchableOpacity,StyleSheet ,Share} from 'react-native';
+import {Text,View,TouchableOpacity,StyleSheet,Share} from 'react-native';
 import SplashScreen from 'react-native-splash-screen'
 
 export default class ShareLesson extends Component {

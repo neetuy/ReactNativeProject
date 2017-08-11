@@ -32,7 +32,8 @@ export default class AppBody extends Component {
         this.setState({refreshing: false});
         
       }
-
+      
+        
     render() {
       let data = this.state.data;
           return (

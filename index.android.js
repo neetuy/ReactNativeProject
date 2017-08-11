@@ -14,7 +14,7 @@ import SetPicture from './src/Components/practice/SetPicture';
 import MusicPlay from './src/Components/practice/MusicPlay';
 import FetchURLData from './src/Components/practice/FetchURLData';
 import ListViewCustom from './src/Components/practice/ListViewCustom';
-import NotificationMessage from './src/Components/NotificationMessage/NotificationMessage';
+// import NotificationMessage from './src/Components/NotificationMessage/NotificationMessage';
 import DatabaseExample from './src/Components/DatabaseExample/DatabaseExample';
 import HomePage from './src/Components/Home/HomePage';
 import DataUrl from './src/Components/practice/DataUrl';
@@ -29,7 +29,7 @@ import ShareMessageExample from './src/Components/practice/ShareMessageExample'
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <NotificationMessage/>
+      <CircularImageView/>
     );
   }
 }

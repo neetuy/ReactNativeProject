@@ -6,8 +6,6 @@ import com.oblador.vectoricons.VectorIconsPackage;
 
 import android.app.Application;
 
-import com.wix.reactnativenotifications.RNNotificationsPackage;
-
 import com.rt2zz.reactnativecontacts.ReactNativeContacts; 
 
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
@@ -43,7 +41,6 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
           new SQLitePluginPackage(), 
           new ReactNativeIcons(),
-          new RNNotificationsPackage(MainApplication.this),
           new ReactNativeContacts(),
           new RCTCameraPackage(),
           new ImagePickerPackage(),
