@@ -20,7 +20,7 @@ import HomePage from './src/Components/Home/HomePage';
 import DataUrl from './src/Components/practice/DataUrl';
 import MapDirections from './src/Components/practice/MapDirections'
 import GestureExample from './src/Components/practice/GestureExample'
-import CircularImageView from './src/Components/practice/CircularImageView'
+import GridViewImage from './src/Components/practice/GridViewImage'
 import Form from './src/Components/Form/Form';
 import AnimationExample from './src/Components/practice/AnimationExample'
 import AnimationExample2 from './src/Components/practice/AnimationExample2';
@@ -29,7 +29,7 @@ import ShareMessageExample from './src/Components/practice/ShareMessageExample'
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <CircularImageView/>
+      <GridViewImage/>
     );
   }
 }
