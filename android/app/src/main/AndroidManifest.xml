@@ -24,7 +24,7 @@
       android:name=".MainApplication"
       android:allowBackup="true"
       android:label="@string/app_name"
-      android:icon="@mipmap/nchannel_logo"
+      android:icon="@mipmap/ic_launcher"
       android:theme="@style/AppTheme">
       <activity
         android:name=".MainActivity"
@@ -40,6 +40,7 @@
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
       <meta-data android:name="com.wix.reactnativenotifications.gcmSenderId" android:value="1234567890\0"/>
       <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyARc2lk-bqpzytk84BBad_9F_73LVJpmME"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
     </application>
 
 </manifest>

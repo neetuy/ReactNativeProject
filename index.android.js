@@ -25,11 +25,12 @@ import Form from './src/Components/Form/Form';
 import AnimationExample from './src/Components/practice/AnimationExample'
 import AnimationExample2 from './src/Components/practice/AnimationExample2';
 import ShareMessageExample from './src/Components/practice/ShareMessageExample'
+import FBLinkingExample  from './src/Components/practice/FBLinkingExample'
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <GridViewImage/>
+      <FBLinkingExample/>
     );
   }
 }
