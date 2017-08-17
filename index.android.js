@@ -28,11 +28,12 @@ import ShareMessageExample from './src/Components/practice/ShareMessageExample'
 import FBLinkingExample  from './src/Components/practice/FBLinkingExample'
 import NetInfoExample  from './src/Components/practice/NetInfoExample'
 import HorizontalListView  from './src/Components/practice/HorizontalListView'
+import ViewPagerExample  from './src/Components/practice/ViewPagerExample'
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <HorizontalListView/>
+      <ViewPagerExample/>
     );
   }
 }
