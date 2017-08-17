@@ -26,11 +26,13 @@ import AnimationExample from './src/Components/practice/AnimationExample'
 import AnimationExample2 from './src/Components/practice/AnimationExample2';
 import ShareMessageExample from './src/Components/practice/ShareMessageExample'
 import FBLinkingExample  from './src/Components/practice/FBLinkingExample'
+import NetInfoExample  from './src/Components/practice/NetInfoExample'
+import HorizontalListView  from './src/Components/practice/HorizontalListView'
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <FBLinkingExample/>
+      <HorizontalListView/>
     );
   }
 }
