@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Text,View,TouchableOpacity,StyleSheet,Image,ListView,ScrollView,StatusBar,RefreshControl} from 'react-native';
-import {Right, Icon, ListItem,List,Header,Body,Title,Card} from 'native-base';
+import {Right, Icon, ListItem,List,Header,Body,Title,Card,CardItem} from 'native-base';
 import  customListView from './customListView.json'
 import {Actions} from 'react-native-router-flux' 
 import SplashScreen from 'react-native-splash-screen'
@@ -48,14 +48,15 @@ export default class AppBody extends Component {
                     </Header>
                    <ScrollView horizontal={true}>
                        {data.map(item =>
-                        <Card style={{height:100, width:200}}>
-                          <List key={item.id} style={{ borderBottomWidth:0, margin:10}}>
-                            <ListItem style={{borderBottomWidth:0}}>
+                        <Card style={{height:130, width:200}}>
+                            <CardItem cardBody key={item.id}>
+                            <Body>
                               <Image style={styles.photo} source={{uri:item.image}}/>
                                 <Text >{item.id}</Text>
                               <Text>{item.description}</Text>
-                            </ListItem>
-                          </List>
+                            </Body>
+                            </CardItem>
+                         
                         </Card>
                               )} 
                        
@@ -73,9 +74,9 @@ const styles = StyleSheet.create ({
    },
     
     photo: {
-    height: 45,
-    width: 45,
-    borderRadius: 22,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     
   },
   textCustom:{
