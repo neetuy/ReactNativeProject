@@ -31,7 +31,10 @@ class ViewPagerAndroidExample extends Component {
     }
   render() {
     let images = this.state.images.map((uri,key)=>{
-    	return <Image key={key} source={uri}/>
+    	return 	<View>
+    						<Image key={key} source={uri} style={styles.image}/>
+    						<Text style={styles.textCustom}>PageNumber: {key+1}</Text>
+    					</View>
     }) 
     return (
       <View style={styles.container}>
@@ -54,12 +57,14 @@ var styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   image: {
-    width: 300,
-    height: 200,
-    padding: 20,
+    width: 410,
+    height: 600,
+    padding: 10,
   },
-  
-  
+  textCustom:{
+  	fontSize:20,
+
+  },
   viewPager: {
     flex: 1,
   },
