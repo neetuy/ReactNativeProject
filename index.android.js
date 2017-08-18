@@ -29,11 +29,12 @@ import FBLinkingExample  from './src/Components/practice/FBLinkingExample'
 import NetInfoExample  from './src/Components/practice/NetInfoExample'
 import HorizontalListView  from './src/Components/practice/HorizontalListView'
 import ViewPagerExample  from './src/Components/practice/ViewPagerExample'
+import AccordianMenuExample from './src/Components/practice/AccordianMenuExample'
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <ViewPagerExample/>
+      <AccordianMenuExample/>
     );
   }
 }

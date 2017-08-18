@@ -50,8 +50,7 @@ export default class HomePage extends Component {
         </Header>
         <Content>
         <Grid>
-          <Row>
-            
+          <Row>  
             <Col>
               <Tabs>
                 <Tab heading="Old Testament "><GridExample1/></Tab>
