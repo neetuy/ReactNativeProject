@@ -30,11 +30,13 @@ import NetInfoExample  from './src/Components/practice/NetInfoExample'
 import HorizontalListView  from './src/Components/practice/HorizontalListView'
 import ViewPagerExample  from './src/Components/practice/ViewPagerExample'
 import AccordianMenuExample from './src/Components/practice/AccordianMenuExample'
+import DateAndTimePicker from './src/Components/practice/DateAndTimePicker'
+import WebViewExample from './src/Components/practice/WebViewExample'
 
 export default class ReactNativeProject extends Component {
   render() {
     return (
-      <AccordianMenuExample/>
+      <WebViewExample/>
     );
   }
 }

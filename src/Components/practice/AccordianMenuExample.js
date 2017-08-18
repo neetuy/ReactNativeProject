@@ -13,8 +13,6 @@ export default class AccordianMenuExample extends Component{
     return (
       <ScrollView style={styles.container}>
         <Panel title="A Panel with short content text">
-         
-            <List>
             <Panel title="A Panel with 1">
             <List>
                 <ListItem>
@@ -48,7 +46,6 @@ export default class AccordianMenuExample extends Component{
                     </Text>
                 </ListItem>
             </Panel>    
-            </List>
         </Panel>
       </ScrollView>
     );

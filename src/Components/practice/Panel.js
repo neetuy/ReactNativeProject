@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import {StyleSheet,Text,View,Image,TouchableHighlight,Animated} from 'react-native';
+import {StyleSheet,Text,View,Image,TouchableOpacity,TouchableHighlight, Animated} from 'react-native';
 
 class Panel extends Component{
     constructor(props){
@@ -12,27 +12,27 @@ class Panel extends Component{
         };
 
         this.state = {
-            title       : props.title,
-            expanded    : true,
-            animation   : new Animated.Value()
+            title     : props.title,
+            expanded  : true,
+            animation : new Animated.Value()
         };
     }
 
-    toggle(){
+   toggle(){
         let initialValue    = this.state.expanded? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
-            finalValue      = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
+        finalValue      = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
-        this.setState({
-            expanded : !this.state.expanded
-        });
+       this.setState({
+           expanded : !this.state.expanded
+       });
 
-        this.state.animation.setValue(initialValue);
-        Animated.spring(
-            this.state.animation,
-            {
-                toValue: finalValue
-            }
-        ).start();
+       this.state.animation.setValue(initialValue);
+       Animated.spring(
+           this.state.animation,
+           {
+               toValue: finalValue
+           }
+       ).start();
     }
 
     _setMaxHeight(event){
@@ -55,26 +55,27 @@ class Panel extends Component{
         }
 
         return (
-            <Animated.View 
-                style={[styles.container,{height: this.state.animation}]}>
-                <View style={styles.titleContainer} onLayout={this._setMinHeight.bind(this)}>
-                    <Text style={styles.title}>{this.state.title}</Text>
-                    <TouchableHighlight 
-                        style={styles.button} 
-                        onPress={this.toggle.bind(this)}
-                        underlayColor="#f1f1f1">
-                        <Image
-                            style={styles.buttonImage}
-                            source={icon}
-                        ></Image>
-                    </TouchableHighlight>
-                </View>
-                
-                <View style={styles.body} onLayout={this._setMaxHeight.bind(this)}>
-                     {this.props.children}
-                </View>
-
-            </Animated.View>
+          <Animated.View style={[styles.container,{height: this.state.animation}]}>
+            <View style={styles.makeup_layout}
+                  onLayout={this._setMinHeight.bind(this)}>
+                <TouchableOpacity style={styles.title_container}>
+                  <Text style={styles.makeup_text}>{this.state.title}</Text>
+                </TouchableOpacity>
+                <TouchableHighlight
+                   style={styles.icon_container}
+                   onPress={this.toggle.bind(this)}
+                   underlayColor="#f1f1f1">
+                   <Image
+                       style={styles.buttonImage}
+                       source={icon}
+                   ></Image>
+               </TouchableHighlight>
+            </View>
+            <View style={styles.children_container}
+                  onLayout={this._setMaxHeight.bind(this)}>
+                {this.props.children}
+            </View>
+          </Animated.View>
         );
     }
 }
@@ -83,6 +84,7 @@ var styles = StyleSheet.create({
     container   : {
         backgroundColor: '#fff',
         margin:10,
+        overflow:'hidden'
     },
     titleContainer : {
         flexDirection: 'row'
@@ -105,5 +107,6 @@ var styles = StyleSheet.create({
         paddingTop  : 0
     }
 });
+
 
 export default Panel;
