@@ -1,64 +1,86 @@
-import React, {Component} from 'react';
-import { TouchableOpacity, Text, View, StyleSheet} from 'react-native';
+import React, {Component} from 'react'
+import {View,Text,TouchableOpacity,Image,ScrollView, Platform,} from 'react-native'
+import {Header, Card, Title, Left,Button,Right,Icon,Body} from 'native-base'
 
-import {Icon} from 'native-base';
-import Sound from 'react-native-sound';
+import Sound from 'react-native-sound'; 
 
-export default class MusicPlay extends Component {
-playSound() {
-      // let s = new Sound('frog.wav','', (e) => {
-      //   if (e) {
-      //     console.log('error', e);
-      //   } else {
-      //     console.log('duration', s.getDuration());
-      //     s.play();
-      //   }
-      // });
-         var whoosh = new Sound('frog.wav', Sound.MAIN_BUNDLE, (error) => {
-            if (error) {
-              console.log('failed to load the sound', error);
-            } 
-            // loaded successfully
+
+export default class SongBookPage extends Component{
+  constructor(){
+    super()
+    this.state = {
+          isSongPlaying: false,
+          songLength: 0,
+          interval: null,
+        
+
+      };
+      this.playSong = this.playSong.bind(this);
+      this.tick = this.tick.bind(this);
+  }
+  
+
+  
+  playSong() {
+     this.state.song.play();
+      this.setState({
+        isSongPlaying: !this.state.isSongPlaying
+      })
+      if(this.state.isSongPlaying == false){
+        this.state.song.pause();
+        this.setState({
+          isSongPlaying: !this.state.isSongPlaying
+      })
+      }
+      
+      
+  }
+
+  
+    
+    tick() {
+    this.state.song.getCurrentTime((seconds) => {
+      this.setState({
+        currentTime: seconds
+      })
+    })
+    }
+    componentWillMount() {
+    var song = new Sound('frog.wav', Sound.MAIN_BUNDLE, (error) => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        this.setState({
+          error:error.message
+        })
+      } else { // loaded successfully
+        console.log('duration in seconds: ' + song.getDuration() +
+            'number of channels: ' + song.getNumberOfChannels());
+        this.setState({
+          volume: .5,
+          song: song,
+          isSongPlaying: false,
+          songLength: song.getDuration(),
+          currentTime: 0,
+          interval: null,
+          error: null
+        })
+      }
+    })
+  }
+     
+  
+
+  render(){
+    return(
+      <ScrollView>
             
-            console.log('duration in seconds: ' + whoosh.getDuration() + 'number of channels: ' + whoosh.getNumberOfChannels());
-              whoosh.play(()=>{
-                whoosh.release()
-            });
-          });
-
-          whoosh.play((success) => {
-            if (success) {
-              console.log('successfully finished playing');
-            } else {
-              console.log('playback failed due to audio decoding errors');
-            }
-        });
-          
+        <View>
+        <Right>
+          <TouchableOpacity onPress={this.playSong}>{this.state.isSongPlaying ? <Icon name="ios-play"/> : <Icon name="ios-pause" />}</TouchableOpacity> 
+        </Right>
+        </View>
+      </ScrollView>
+      )
   }
+} 
 
-componenWillMount(){
-    setTimeout(this.playSound(), 5000);
-  }
-
-
-  render() {
-
-    return (
-      <View style ={styles.container}>
-    <TouchableOpacity onPress={this.playSound} >
-      <Icon name='ios-play' size={22} color={'rgb(44, 157, 51)'} />
-      <Text>Play Call</Text>
-      </TouchableOpacity>
-  </View>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-})
